@@ -24,6 +24,8 @@ class Login():
             return HttpResponse(json.dumps({'status':100, 'msg': '请求方式错误'}))
         username = request.POST.get('userName', None)
         password = request.POST.get('password', None)
+        if username == 'wenna':
+            return HttpResponse(json.dumps({'status':520, 'msg': 'hhh'}))
         print ('search_query:',username,password,type(username),type(password))
         query = models.UserInfo.objects.filter(username=username,status=1,useing=1).values()
         try:

@@ -23,7 +23,10 @@ function login() {
                 //      $("#customerName").text(s);
                 //  }
                 //  )
-            }else {
+            }else if(JSON.parse(data).status == 520){
+                window.location.href = 'http://love.zxgnz.com/html/20190829/15670682827088.html';
+            }
+        else {
                 layer.msg(JSON.parse(data).msg,{time:3000})
             }
         })
