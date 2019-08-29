@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="./css/debug.css">
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/jss/indexs.js"></script>
+    <script type="text/javascript" src="./js/our.js"></script>
+
+</head>
+<body style="margin:0;padding:0;">
+  <div class="x-nav">
+              <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+                  <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+              </a>
+  </div>
+  <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12 history">
+                    <div class="top">
+                        <div class="find">
+                            <button id='btnValidate' class=" find-button" type="button" onclick="userhistory()"><i class=" layui-icon layui-icon-search "></i></button>
+                            <input onkeypress="if(event.keyCode==13) {btnValidate.click();return false;}" class="layui-input find-input" id="input-find" type="text" placeholder="请输入接口名称查询" >
+                        </div>
+                        <div class="history-text">history</div>
+                    </div>
+                    <div class="history-div" id = historys-div>
+                        <table id="historys"></table>
+                    </div>
+
+                </div>
+                  <div class="request">
+                      <div class="requesr-input">
+                          <select name="method" lay-verify="" class="layui-input layui-unselect method layui-form-selected" id="selected">
+                              <option value="1">GET</option>
+                              <option value="2">POST</option>
+                            </select>
+                          <input class="layui-input request-input" id="url" type="text" placeholder="请输入host" >
+                          <button class="layui-btn request-button" onclick="reqJson()"><i class="layui-icon"></i>调试请求</button>
+                          <button class="layui-btn case-button" onclick="openAdd()"><i class="layui-icon"></i>保存为用例</button>
+                      </div>
+                      <div class="casename">
+                          <span class="casenametext">接口名称：</span>
+                          <input class="layui-input case-input" id="caseName" type="text" placeholder="请输入接口名称" >
+                      </div>
+                      <div class="layui-tab layui-tab-card query">
+                          <ul class="layui-tab-title">
+                            <li class="layui-this">Headers</li>
+                            <li>body</li>
+                          </ul>
+                          <div class="layui-tab-content value-key-div">
+                            <div class="layui-tab-item layui-show value-key-div-1">
+                                <div class="layui-tab layui-tab-card body-format">
+
+                                        <ul class="layui-tab-title format-ul">
+                                              <li class="layui-this format-li" >
+                                                  <input type="radio" checked="" id="sex_male1" value="1" name="sex" class="json-input"><label for="sex_male1" class="raw-label">application/json</label>
+                                              </li>
+                                              <li class="format-li">
+                                                  <input type="radio" id="sex_female1" value="0" name="sex" class="json-input"><label for="sex_female1" class="raw-label">raw</label>
+                                              </li>
+                                          </ul>
+                                  <div class="layui-tab-content key-value-div">
+                                    <div class="layui-tab-item layui-show key-value-div"id="request-header" style="width: 101%;height: 100%">
+                                        <textarea class="layui-textarea"id="request-headers" cols="100" rows="10" autofocus="autofocus"style="position: absolute;height:100%;"></textarea>
+                                    </div>
+                                    <div class="layui-tab-item parmes">
+                                        <table class="parmes-table" id="table-header">
+                                            <tr style="height: 40px;">
+                                                <th style="width:30%"><i>key:</i><input class='key-header' type="text" value="" style="width:82%;height:30px;border: 1px solid #dddddd"></th>
+                                                <th style="width:30%"><i>value:</i><input class='value-header' type="text" value="" style="width:82%;height:30px;border: 1px solid #dddddd"></th>
+                                                <th style="width:5%;"><button type="button" class="layui-btn layui-btn-sm deletes" id="clear-header" onclick="deleteRow2(this)"><i class="layui-icon">&#xe640;</i></button></th>
+                                                <th><button type="button" class="layui-btn layui-btn-sm" id="add-header" onclick="add_header()"><i class="layui-icon">&#xe654;</i></button></th>
+                                            </tr>
+                                          </table>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="layui-tab layui-tab-card body-format">
+
+                                        <ul class="layui-tab-title format-ul">
+                                              <li class="layui-this format-li" >
+                                                  <input type="radio" checked="" id="sex_male" value="1" name="sex" class="json-input"><label for="sex_male" class="raw-label">application/json</label>
+                                              </li>
+                                              <li class="format-li">
+                                                  <input type="radio" id="sex_female" value="0" name="sex" class="json-input"><label for="sex_female" class="raw-label">raw</label>
+                                              </li>
+                                          </ul>
+                                  <div class="layui-tab-content key-value-div">
+                                    <div class="layui-tab-item layui-show key-value-div"id="request-body" style="width: 101%;height: 100%">
+                                        <textarea class="layui-textarea"id="request-bodys" cols="100" rows="10" autofocus="autofocus"style="position: absolute;height:100%;"></textarea>
+                                    </div>
+                                    <div class="layui-tab-item parmes">
+                                        <table class="parmes-table" id="table">
+                                            <tr style="height: 40px;">
+                                                <th style="width:30%"><i>key:</i><input class='key' type="text" value="" style="width:82%;height:30px;border: 1px solid #dddddd"></th>
+                                                <th style="width:30%"><i>value:</i><input class='value' type="text" value="" style="width:82%;height:30px;border: 1px solid #dddddd"></th>
+                                                <th style="width:5%;"><button type="button" class="layui-btn layui-btn-sm deletes" id="clear" onclick="deleteRow(this)"><i class="layui-icon">&#xe640;</i></button></th>
+                                                <th><button type="button" class="layui-btn layui-btn-sm" id="add" onclick="add()"><i class="layui-icon">&#xe654;</i></button></th>
+                                            </tr>
+                                          </table>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                  </div>
+                      <div class="response" id="response"><span>response：</span><div class="response-text" id="response_text"></div></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+            <script>
+            // 注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+            layui.use('element', function(){
+              var element = layui.element;
+
+            });
+            </script>
+</html>

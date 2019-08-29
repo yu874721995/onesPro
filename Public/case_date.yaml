@@ -1,0 +1,20 @@
+0:
+  caseName: 哈哈哈哈哈
+  case_assert:
+    sadsad: sadsd
+  case_body:
+    BetNumber: '[{"playCode":"ZHI_XUAN","c":1,"m":2,"betNumber":"1-3-2-4-6-8-7","abs":"","multiple":1}'
+    buyIssue: '1'
+    lotCode: '10045'
+    lotIssue: '2019086'
+    multiple: '1'
+    playCode: ZHI_XUAN
+    sign: 0948D119F2AEA3DB01054F1478431BA4
+    storeId: '3'
+    timestamp: '1564038059735'
+    token: b464b509cff2417ea9185097b6428b60
+  case_header: {}
+  case_id: 29
+  host: http://test.wanfengmall.com/yzstore/order/separateBuyLot
+  method: '2'
+  status: '1'

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>用例编辑</title>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />-->
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <link rel="stylesheet" href="./lib/layui/css/layui.mobile.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="./lib/layui-formSelects-master/dist/formSelects-v4.css">
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/our.js"></script>
+    <script type="text/javascript" src="/static/lib/layui/layui.all.js"></script>
+    <script type="text/javascript" src="/static/lib/layui-formSelects-master/dist/formSelects-v4.js"></script>
+
+
+
+</head>
+<body>
+<div class="layui-form-item">
+  <div class="layui-form" style="margin: 30px">
+
+      <form class="layui-form" action="">
+
+      <div class="layui-form-item">
+          <label class="layui-form-label">用例名称</label>
+          <input id="casename" type="text" name="caseName" required lay-verify="required" placeholder="请输入用例名称" autocomplete="off" class="layui-input layui-input-inline">
+<!--          <div class="layui-inline"><select id="pid-cp" lay-verify="required" name="cpChoice" lay-verify=""><option value="">请选择产品</option><option grade="产品" value="1">易中奖</option></select></div>-->
+<!--          <div class="layui-inline"><button type="button" onclick="addcpChoice()" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe654;</i></button></div>-->
+<!--          <div class="layui-inline"><select id="pid-mk" lay-verify="required" name="mkChoice" lay-verify=""><option value="">请选择模块</option><option grade="模块" value="2">首页</option></select></div>-->
+<!--          <div class="layui-inline"><button type="button" onclick="addmkChoice()" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe654;</i></button></div>-->
+      </div>
+       <div class="layui-form-item">
+          <label class="layui-form-label">选择目录</label>
+<!--          <input type="text" name="caseName" required lay-verify="required" placeholder="请输入用例名称" autocomplete="off" class="layui-input layui-input-inline">-->
+          <div class="layui-inline" style="width: 50%"><select style="linkageWidth:60px" id="popcp" lay-verify="required" xm-select="select15" name="cpChoice" lay-search xm-select-radio></select></div>
+          <div class="layui-inline"><button type="button" onclick="addcpChoice('mk')" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe654;</i></button></div>
+      </div>
+
+      <div class="layui-form-item">
+          <label class="layui-form-label">接口地址</label>
+          <div class="layui-input-block">
+              <input id="caseurl" type="text" name="caseUrl" required  lay-verify="required" placeholder="请输入接口地址" autocomplete="off" class="layui-input">
+          </div>
+      </div>
+
+
+
+      <div class="layui-form-item">
+          <label class="layui-form-label">单选框</label>
+          <div class="layui-input-block">
+              <input id='get' type="radio" name="method" value="1" title="get">
+              <input id='post' type="radio" name="method" value="2" title="post" checked>
+          </div>
+      </div>
+
+      <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">body</label>
+          <div class="layui-input-block" >
+              <textarea id="bodyText"style="min-height: unset" name="body" placeholder="请输入内容" class="layui-textarea"></textarea>
+          </div>
+      </div>
+
+      <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">header</label>
+          <div class="layui-input-block">
+            <textarea id="headerText" style="min-height: unset" name="header" placeholder="请输入内容" class="layui-textarea"></textarea>
+          </div>
+      </div>
+
+       <div class="layui-form-item">
+           <label class="layui-form-label">断言设置</label>
+           <div class="layui-input-block" style="margin-bottom: 0;">
+<!--               <div class="layui-inline"><input id="aseertname" type="text" name="assertName"  lay-verify="required" placeholder="请输入断言参数" autocomplete="off" class="layui-input layui-input-inline"></div>-->
+<!--               <div class="layui-inline"><input id="aseerttext"type="text" name="assertText"  lay-verify="required" placeholder="请输入断言内容" autocomplete="off" class="layui-input layui-input-inline"></div>-->
+<!--               <div class="layui-inline"><button type="button" class="layui-btn layui-btn-sm deletes" id="clear-assert" onclick="deleteassert(this)"><i class="layui-icon">&#xe640;</i></button></div>-->
+<!--               <div class="layui-inline"><button type="button" class="layui-btn layui-btn-sm" id="add-assert" onclick="add_assert()"><i class="layui-icon">&#xe654;</i></button></div>-->
+               <table class="parmes-table" id="assert">
+                    <tr>
+                        <th ><input id="aseertname" type="text" name="assertName"  lay-verify="required" placeholder="请输入断言参数" autocomplete="off" class="layui-input layui-input-inline"></th>
+                        <th ><input id="aseerttext"type="text" name="assertText"  lay-verify="required" placeholder="请输入断言内容" autocomplete="off" class="layui-input layui-input-inline"></th>
+                        <th ><button type="button" class="layui-btn layui-btn-sm deletes" id="clear-assert" onclick="deleteassert(this)"><i class="layui-icon">&#xe640;</i></button></th>
+                        <th><button type="button" class="layui-btn layui-btn-sm" id="add-assert" onclick="add_assert()"  style="margin-left:10px;"><i class="layui-icon">&#xe654;</i></button></th>
+                    </tr>
+                  </table>
+           </div>
+      </div>
+
+
+      <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+      </div>
+</form>
+
+
+  </div>
+</div>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  form.render();
+
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+      // addProducts('产品');
+
+      var assertNames = [];
+      var assertTexts = [];
+      $('input[name="assertName"]').each(function(){assertNames.push($(this).val())})
+      $('input[name="assertText"]').each(function(){assertTexts.push($(this).val())})
+      var req = {
+          caseName:data['field']['caseName'],
+          cpChoice:data['field']['cpChoice'],
+          caseUrl:data['field']['caseUrl'],
+          method:data['field']['method'],
+          body:data['field']['body'],
+          header:data['field']['header'],
+          assertName:JSON.stringify(assertNames),
+          assertText:JSON.stringify(assertTexts)
+      };
+      console.log(data['field'])
+      $.post('http://192.168.10.123:9001/SaveTestCase',req,function(date){
+          var json_date;
+          json_date = JSON.parse(date).data;
+          json_status = JSON.parse(date).status;
+          json_msg = JSON.parse(date).msg;
+
+          if(json_status == 1){
+              parent.layer.msg(json_msg)
+              var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+              //关闭该弹层
+              parent.layer.close(index);
+              window.location.reload()
+          }else {
+              layer.msg(json_msg)
+          }
+      })
+        return false
+  });
+
+});
+
+
+//动态加载产品及模块列表
+var formSelects = layui.formSelects;
+ formSelects.config('select15_2', {
+            success: function(id, url, val, result){
+                console.log("success回调: " + url);
+            },
+            error: function(id, url, val, err){
+                console.log("err回调: " + url);
+            }
+        });
+ formSelects.data('select15', 'server', {
+            //
+            //http://yapi.demo.qunar.com/mock/9813/layui/citys
+            url: 'http://192.168.10.123:9001/queryForOur',
+            linkage: true,
+            linkageWidth: 130
+        });
+
+        //如果有需要默认值的小伙伴请使用formSelects.value
+        formSelects.value('select15', [])
+
+</script>
+    <script type="text/javascript" src="./jss/indexs.js"></script>
+</body>
+</html>
