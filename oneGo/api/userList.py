@@ -83,6 +83,7 @@ class user_list():
             user_history.append(everyhost)
         return HttpResponse(json.dumps({'status': 1, 'msg': '操作成功', 'data': user_history}, cls=DateEncoder))
 
+    #增加用户
     def add_User(self,request):
         username = request.POST.get('username',None)
         password = request.POST.get('password',None)

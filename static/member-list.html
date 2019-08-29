@@ -288,7 +288,7 @@
 
                 $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
                 querys = {type:1,user_id:json_data.data[r].id}
-                $.post('http://192.168.10.123:9001/updateUserStatus',querys,function(data){
+                $.post('http://47.93.244.11:9001/updateUserStatus',querys,function(data){
                     rep_status = JSON.parse(data).status
                     msgs = JSON.parse(data).msg
                     if(json_data == 1){
@@ -306,7 +306,7 @@
                 $(obj).find('i').html('&#xe62f;');
                 $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
                 querys = {type:0,user_id:json_data.data[r].id}
-                $.post('http://192.168.10.123:9001/updateUserStatus',querys,function(data){
+                $.post('http://47.93.244.11:9001/updateUserStatus',querys,function(data){
                     rep_status = JSON.parse(data).status
                     msgs = JSON.parse(data).msg
                     if(json_data == 1){
@@ -324,7 +324,7 @@
           layer.confirm('确认要删除吗？',function(index){
               var json_status,json_msg
               //发异步删除数据
-              $.post('http://192.168.10.123:9001/user_delete',{user_id:json_data.data[r].id},function (data) {
+              $.post('http://47.93.244.11:9001/user_delete',{user_id:json_data.data[r].id},function (data) {
                   json_status = JSON.parse(data).status
                   json_msg = JSON.parse(data).msg
                   if(json_status == 1){

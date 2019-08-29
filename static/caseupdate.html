@@ -130,7 +130,7 @@ layui.use('form', function(){
           assertText:JSON.stringify(assertTexts)
       };
       console.log(data['field'])
-      $.post('http://192.168.10.123:9001/SaveTestCase',req,function(date){
+      $.post('http://47.93.244.11:9001/SaveTestCase',req,function(date){
           var json_date;
           json_date = JSON.parse(date).data;
           json_status = JSON.parse(date).status;
@@ -165,7 +165,7 @@ var formSelects = layui.formSelects;
  formSelects.data('select15', 'server', {
             //
             //http://yapi.demo.qunar.com/mock/9813/layui/citys
-            url: 'http://192.168.10.123:9001/queryForOur',
+            url: 'http://47.93.244.11:9001/queryForOur',
             linkage: true,
             linkageWidth: 130
         });
