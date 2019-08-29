@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oneGo/api/login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="44" column="70" lean-forward="true" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
+            <state relative-caret-position="300">
+              <caret line="29" column="92" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
               <folding>
                 <element signature="e#155#191#0" expanded="true" />
               </folding>
@@ -39,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oneGo/api/req_Debug.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="16" />
+            <state relative-caret-position="149">
+              <caret line="91" column="13" lean-forward="true" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -161,13 +161,13 @@
         <option value="$PROJECT_DIR$/static/js/member.js" />
         <option value="$PROJECT_DIR$/static/js/caseList.js" />
         <option value="$PROJECT_DIR$/onesPro/urls.py" />
+        <option value="$PROJECT_DIR$/static/jss/index.js" />
         <option value="$PROJECT_DIR$/onesPro/settings.py" />
         <option value="$PROJECT_DIR$/oneGo/api/login.py" />
-        <option value="$PROJECT_DIR$/static/jss/index.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1040" />
@@ -279,25 +279,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567044054557</updated>
-      <workItem from="1567044055899" duration="8522000" />
+      <workItem from="1567044055899" duration="9719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8522000" />
+    <option name="totallyTimeSpent" value="9719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -596,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oneGo/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -652,20 +645,27 @@
         <state relative-caret-position="-4104" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oneGo/api/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="44" column="70" lean-forward="true" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
-          <folding>
-            <element signature="e#155#191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oneGo/api/req_Debug.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="84" column="89" lean-forward="true" selection-start-line="84" selection-start-column="89" selection-end-line="84" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="91" column="13" lean-forward="true" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oneGo/api/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="29" column="92" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
+          <folding>
+            <element signature="e#155#191#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
