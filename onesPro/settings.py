@@ -25,7 +25,7 @@ DEFAULT_CHARSET = 'utf-8'
 LANGUAGE_CODE='zh-CN'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
