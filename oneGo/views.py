@@ -8,6 +8,8 @@ import requests
 
 from django.contrib.auth.decorators import login_required
 import datetime
+import logging
+logger = logging.getLogger('stu')
 
 user_list = []
 
@@ -55,6 +57,7 @@ def deleteHistory(request):
     case_id = request.POST.get('caseId',None)
     models.user_body.objects.filter(host_id_id=case_id).update(status=0)
     models.user_host.objects.filter(id=case_id).update(status=0)
+    logger.info('is ok')
     return HttpResponse(json.dumps({'status':1,'msg':'操作成功'}))
 
 
