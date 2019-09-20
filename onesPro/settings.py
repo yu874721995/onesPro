@@ -48,7 +48,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': '%s/jwt_test.log' %LOG_PATH,  #这是将普通日志写入到日志文件中的方法，
-            'formatter': 'standard'
+            'formatter': 'default'
         },
     'uauth_handlers': {
             'level': 'DEBUG',
