@@ -15,6 +15,9 @@ from Public.JsonData import DateEncoder
 from django.forms.models import model_to_dict
 from ruamel import yaml
 from Public.runner import runner_case
+from Public.logger import Logger
+
+log = Logger(logger='django_logger').getlog()
 
 class caseChoice():
 
@@ -192,7 +195,7 @@ class caseChoice():
                 f.close()
             isOk = True
         except Exception as e:
-            print(e)
+            log.error(e)
             return HttpResponse(json.dumps({'status':500,'msg': '~出错了，请重试'}))
         # self.query_case(caseId)
         # 执行测试
