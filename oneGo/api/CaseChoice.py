@@ -168,7 +168,7 @@ class caseChoice():
         # path = os.path.dirname(os.path.abspath('.')) + '/Public/case_date.yaml'
 
         # path = os.path.abspath('.') + '/Public/case_date.yaml'
-        path = os.path.abspath('.') + '/Public/case_date.json'
+        path = os.path.dirname(os.path.abspath('.')) + '/Public/case_date.json'
         datas = {}
         case_name = []
         num = 0
