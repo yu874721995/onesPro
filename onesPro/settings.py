@@ -36,14 +36,12 @@ LOGGING = {
     },
 
     'handlers': {
-        'stu_handlers': {
+        'console': {
             'level': 'DEBUG',
             # 日志文件指定为5M, 超过5m重新命名，然后写入新的日志文件
-            'class': 'logging.handlers.RotatingFileHandler',
-            # 指定文件大小
-            'maxBytes': 5 * 1024,
+            'class': 'logging.StreamHandler',
             # 指定文件地址
-            'filename': '%s/log.txt' % LOG_PATH,
+            'stream': 'ext://sys.stdout',
             'formatter': 'default'
         },
         'uauth_handlers': {
@@ -58,9 +56,15 @@ LOGGING = {
         }
     },
     'loggers': {
-        'stu': {
-            'handlers': ['stu_handlers'],
-            'level': 'INFO'
+        'django': {
+            'handlers': ['console','file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django_request':{
+            'handlers': ['console','file'],
+            'level': 'ERROR',  # 配合上面的将警告log写入到另外一个文件
+            'propagate': True,
         },
         'auth': {
             'handlers': ['uauth_handlers'],
