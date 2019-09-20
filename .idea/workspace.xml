@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/logger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oneGo/api/CaseChoice.py" beforeDir="false" afterPath="$PROJECT_DIR$/oneGo/api/CaseChoice.py" afterDir="false" />
-    </list>
+    <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oneGo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            <state relative-caret-position="418">
+              <caret line="58" column="64" lean-forward="true" selection-start-line="58" selection-start-column="64" selection-end-line="58" selection-end-column="64" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -62,14 +58,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oneGo/api/CaseChoice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="194" column="25" lean-forward="true" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
+            <state relative-caret-position="304">
+              <caret line="190" column="43" lean-forward="true" selection-start-line="190" selection-start-column="43" selection-end-line="190" selection-end-column="43" />
               <folding>
                 <element signature="e#159#195#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -124,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/oneGo/views.py" />
         <option value="$PROJECT_DIR$/oneGo/api/req_Debug.py" />
         <option value="$PROJECT_DIR$/oneGo/api/updateUser.py" />
         <option value="$PROJECT_DIR$/oneGo/api/user_CreateTestCase.py" />
@@ -149,9 +153,10 @@
         <option value="$PROJECT_DIR$/static/jss/index.js" />
         <option value="$PROJECT_DIR$/oneGo/api/login.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/db/backends/mysql/base.py" />
-        <option value="$PROJECT_DIR$/onesPro/settings.py" />
         <option value="$PROJECT_DIR$/Public/logger.py" />
         <option value="$PROJECT_DIR$/oneGo/api/CaseChoice.py" />
+        <option value="$PROJECT_DIR$/onesPro/settings.py" />
+        <option value="$PROJECT_DIR$/oneGo/views.py" />
       </list>
     </option>
   </component>
@@ -182,13 +187,7 @@
             <path>
               <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
               <item name="onesPro" type="462c0819:PsiDirectoryNode" />
-              <item name="oneGo" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
               <item name="onesPro" type="462c0819:PsiDirectoryNode" />
-              <item name="Public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
@@ -211,14 +210,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\onesPro\oneGo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\onesPro\Public" />
       <recent name="D:\onesPro\oneGo" />
       <recent name="D:\onesPro" />
       <recent name="D:\onesPro\onesPro" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\onesPro\oneGo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -274,7 +273,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15598000" />
+    <option name="totallyTimeSpent" value="15795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -587,16 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oneGo/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oneGo/api/login.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -621,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oneGo/api/user_CreateTestCase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -645,19 +627,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/logger.py">
+    <entry file="file://$PROJECT_DIR$/Public/logger.py" />
+    <entry file="file://$PROJECT_DIR$/oneGo/api/CaseChoice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        <state relative-caret-position="304">
+          <caret line="190" column="43" lean-forward="true" selection-start-line="190" selection-start-column="43" selection-end-line="190" selection-end-column="43" />
+          <folding>
+            <element signature="e#159#195#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oneGo/api/CaseChoice.py">
+    <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="194" column="25" lean-forward="true" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
+        <state relative-caret-position="287">
+          <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oneGo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="58" column="64" lean-forward="true" selection-start-line="58" selection-start-column="64" selection-end-line="58" selection-end-column="64" />
           <folding>
-            <element signature="e#159#195#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
