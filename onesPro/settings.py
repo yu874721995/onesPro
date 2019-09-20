@@ -44,7 +44,13 @@ LOGGING = {
             'stream': 'ext://sys.stdout',
             'formatter': 'default'
         },
-        'uauth_handlers': {
+    'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '%s/jwt_test.log' %LOG_PATH,  #这是将普通日志写入到日志文件中的方法，
+            'formatter': 'standard'
+        },
+    'uauth_handlers': {
             'level': 'DEBUG',
             # 日志文件指定为5M, 超过5m重新命名，然后写入新的日志文件
             'class': 'logging.handlers.RotatingFileHandler',
