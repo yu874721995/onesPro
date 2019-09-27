@@ -83,7 +83,7 @@
                     //发异步，把数据提交
                     var username = $('#L_username').val();
                     var password = $('#L_pass').val();
-                    $.post('http://47.93.244.11:9001/addUser',{username:username,password:password},function(data){
+                    $.post('http://yushifamily.club/addUser',{username:username,password:password},function(data){
                         json_status = JSON.parse(data).status
                         json_msg = JSON.parse(data).msg
                         if(json_status == 1){

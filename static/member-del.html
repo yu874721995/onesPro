@@ -157,7 +157,7 @@
           layer.confirm('确认要恢复吗？',function(index){
               var json_status,json_msg;
               //发异步删除数据
-              $.post('http://47.93.244.11:9001/recoverCustomer',{user_id:json_data.data[r].id},function(data){
+              $.post('http://yushifamily.club/recoverCustomer',{user_id:json_data.data[r].id},function(data){
                       json_status = JSON.parse(data).status
                       json_msg = JSON.parse(data).msg
                       if(json_status == 1){

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/logger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oneGo/api/CaseChoice.py" beforeDir="false" afterPath="$PROJECT_DIR$/oneGo/api/CaseChoice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/jss/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/jss/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,88 +16,73 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oneGo/views.py">
+        <entry file="file://$PROJECT_DIR$/static/member-password.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-923" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oneGo/api/userList.py">
+        <entry file="file://$PROJECT_DIR$/static/order-add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
-              <folding>
-                <element signature="e#159#195#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-1835" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oneGo/models.py">
+        <entry file="file://$PROJECT_DIR$/static/order-list1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-6186" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oneGo/api/req_Debug.py">
+        <entry file="file://$PROJECT_DIR$/static/unicode.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/role-add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-608">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="-1445" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/welcome1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3659" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/welcome.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3260" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-280" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/oneGo/api/CaseChoice.py">
+        <entry file="file://$PROJECT_DIR$/static/jss/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="194" column="25" lean-forward="true" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
-              <folding>
-                <element signature="e#159#195#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oneGo/api/login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-              <folding>
-                <element signature="e#155#191#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/celery/utils/timer2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/kombu/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            <state relative-caret-position="323">
+              <caret line="18" column="63" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -146,12 +129,12 @@
         <option value="$PROJECT_DIR$/static/js/member.js" />
         <option value="$PROJECT_DIR$/static/js/caseList.js" />
         <option value="$PROJECT_DIR$/onesPro/urls.py" />
-        <option value="$PROJECT_DIR$/static/jss/index.js" />
         <option value="$PROJECT_DIR$/oneGo/api/login.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/db/backends/mysql/base.py" />
         <option value="$PROJECT_DIR$/onesPro/settings.py" />
         <option value="$PROJECT_DIR$/Public/logger.py" />
         <option value="$PROJECT_DIR$/oneGo/api/CaseChoice.py" />
+        <option value="$PROJECT_DIR$/static/jss/index.js" />
       </list>
     </option>
   </component>
@@ -188,7 +171,29 @@
             <path>
               <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
               <item name="onesPro" type="462c0819:PsiDirectoryNode" />
+              <item name="onesPro" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="onesPro" type="462c0819:PsiDirectoryNode" />
               <item name="Public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="onesPro" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="onesPro" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="onesPro" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="jss" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="onesPro" type="b2602c69:ProjectViewProjectNode" />
@@ -274,12 +279,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15598000" />
+    <option name="totallyTimeSpent" value="15613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16044776" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1130064" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -293,7 +299,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3846154" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.45720476" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -308,14 +314,12 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="68" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
+        <state relative-caret-position="-3260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/welcome1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
+        <state relative-caret-position="-3659" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/user.json">
@@ -326,22 +330,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/role-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
+        <state relative-caret-position="-1445" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/order-list1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
+        <state relative-caret-position="-6186" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/order-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
+        <state relative-caret-position="-1835" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/member-password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
+        <state relative-caret-position="-923" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/member-list1.html">
@@ -572,8 +576,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/jss/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        <state relative-caret-position="323">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -616,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state relative-caret-position="456">
+          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -645,13 +649,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/logger.py" />
     <entry file="file://$PROJECT_DIR$/oneGo/api/CaseChoice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">

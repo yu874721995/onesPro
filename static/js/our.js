@@ -8,7 +8,7 @@ function addcpChoice(name) {
               title: '请输入产品名称',
               area: ['800px', '350px'] //自定义文本域宽高
             }, function(value, index, elem){
-                 $.post('http://47.93.244.11:9001/addChoice',{cpname:value,type:1},function(data){
+                 $.post('http://yushifamily.club/addChoice',{cpname:value,type:1},function(data){
                     repjson = JSON.parse(data)
                     if(repjson.status == 1){
                         parent.layer.close(index);
@@ -44,7 +44,7 @@ function addcpChoice(name) {
                     var repjson,cpname;
                     var cpname = layero.find('#mkName').val()
                     var subjection = layero.find('#cp option:selected').val()
-                    $.post('http://47.93.244.11:9001/addChoice', {cpname: cpname,subjection:subjection,type: 2}, function (data) {
+                    $.post('http://yushifamily.club/addChoice', {cpname: cpname,subjection:subjection,type: 2}, function (data) {
                         repjson = JSON.parse(data)
                         if (repjson.status == 1) {
                             parent.layer.close(index);
@@ -55,7 +55,7 @@ function addcpChoice(name) {
                 }
                 //打开添加页面是读取产品列表
                 , success: function (layero) {
-                    $.post('http://47.93.244.11:9001/queryForProduct', {}, function (data) {
+                    $.post('http://yushifamily.club/queryForProduct', {}, function (data) {
                         var pro;
                         var _html;
                         var pro = JSON.parse(data).data;

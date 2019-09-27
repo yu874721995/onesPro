@@ -1,6 +1,6 @@
 
 $(function() {
-    $.post('http://47.93.244.11:9001/userList',function(data){
+    $.post('http://yushifamily.club/userList',function(data){
         json_data = JSON.parse(data)
         var _html,sex,status,num = ''
         num = 1

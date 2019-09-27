@@ -1,4 +1,4 @@
-function one(){$.post('http://47.93.244.11:9001/session_test',function (data) {
+function one(){$.post('http://yushifamily.club/session_test',function (data) {
     // console.log('+++++++++++++++++++++++'+data)
       var userid = data.data.userid;
       document.getElementById('msg').innerHTML=userid
@@ -26,7 +26,7 @@ function one(){$.post('http://47.93.244.11:9001/session_test',function (data) {
 })()
 
 function username() {
-        $.post('http://47.93.244.11:9001/username' , function (data) {
+        $.post('http://yushifamily.club/username' , function (data) {
         var json_data = JSON.parse(data);
         var username = json_data.data.username;
         $('#customerName').text(username);
@@ -35,7 +35,7 @@ function username() {
     function userhistory() {
         var _html = '';
         var search = $('#input-find').val();
-        $.post('http://47.93.244.11:9001/UserHistory' ,{search:search},function (data) {
+        $.post('http://yushifamily.club/UserHistory' ,{search:search},function (data) {
             json_data = JSON.parse(data);
             for(var i=json_data.data.length-1;i>=0;i--){
                 //此处必须用div包裹，否则无法渲染！
@@ -47,7 +47,7 @@ function username() {
 
     function deleteHistory(r) {
     req = {caseId:json_data.data[r].id};
-        $.post('http://47.93.244.11:9001/deleteHistory' , req,function (data) {
+        $.post('http://yushifamily.club/deleteHistory' , req,function (data) {
             userhistory()
         })
     }
@@ -174,7 +174,7 @@ function username() {
                 json_header:request_header
             }
             //发送异步请求
-            $.post('http://47.93.244.11:9001/reqJson', req, function (data) {
+            $.post('http://yushifamily.club/reqJson', req, function (data) {
                 var json_response = JSON.parse(data);
                 if(json_response.msg=='登录超时'){
                     layer.msg('登录过期，请重新登录')
@@ -204,7 +204,7 @@ function username() {
                 CaseName:CaseName,
             }
             //发送请求
-            $.post('http://47.93.244.11:9001/reqJson', get_req, function (data) {
+            $.post('http://yushifamily.club/reqJson', get_req, function (data) {
                 userhistory();
                 var json_response = JSON.parse(data);
                 var str_rep = formatJson(json_response.data)
@@ -225,11 +225,11 @@ function username() {
                     postdata.push(mn);
                 }
                 var req = {url:url,data:postdata,type:'post',CaseName:CaseName};
-                $.post('http://47.93.244.11:9001/SaveTestCase', req , function (data){
+                $.post('http://yushifamily.club/SaveTestCase', req , function (data){
 
                 });
             }else{
-                $.post('http://47.93.244.11:9001/SaveTestCase', {url:url,key:key,value:value,type:'post'}, function (data){
+                $.post('http://yushifamily.club/SaveTestCase', {url:url,key:key,value:value,type:'post'}, function (data){
 
                 })
             }
@@ -243,11 +243,11 @@ function username() {
                     postdata.push(mn);
                 }
                 var req = {url:url,data:postdata,type:'get'};
-                $.post('http://47.93.244.11:9001/SaveTestCase', req , function (data){
+                $.post('http://yushifamily.club/SaveTestCase', req , function (data){
 
                 });
             }else{
-                $.post('http://47.93.244.11:9001/SaveTestCase', {url:url,key:key,value:value,type:'get'}, function (data){
+                $.post('http://yushifamily.club/SaveTestCase', {url:url,key:key,value:value,type:'get'}, function (data){
 
                 })
             }
@@ -318,7 +318,7 @@ function openAdd(){
               body.find('#caseurl').val(url);
               postdata == '' ?body.find('#bodyText').val(request_body) : body.find('#bodyText').val(JSON.stringify(postdata));
               postheader == '' ?body.find('#headerText').val(request_header) : body.find('#headerText').val(JSON.stringify(postheader))
-              $.post('http://47.93.244.11:9001/queryForProduct',{},function (data) {
+              $.post('http://yushifamily.club/queryForProduct',{},function (data) {
                   var _html,json_data;
                   json_data = JSON.parse(data).data
                   for (var i = 0; i < json_data.length; i++) {
