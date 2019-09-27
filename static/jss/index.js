@@ -9,14 +9,14 @@ function login() {
         }else if(!pwd){
         layer.msg('密码为空，请输入',{time:3000})
                      }else {
-                            $.post('http://www.yushifamily.club/Loginup', {
+                            $.post('http://yushifamily.club/Loginup', {
                                 userName: $('#user').val(),
                                 password: $('#pwd').val()
         }, function (data) {
             console.log(data)
             if (JSON.parse(data).status == 1) {
                 var msg = JSON.parse(data).data;
-                window.location.href = 'http://www.www.yushifamily.club/index';
+                window.location.href = 'http://yushifamily.club/index';
                 // $.post('http://192.168.10.123:9001/session_test',function (data) {
                 //      console.log(data)
                 //      var s = data.data;
