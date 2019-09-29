@@ -15,5 +15,7 @@ import requests
 from django.shortcuts import render
 
 def sendMsg(request):
+    xml = request.raw_data()
+    print(xml)
     print(request)
     return HttpResponse('ss')
