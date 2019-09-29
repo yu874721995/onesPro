@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/oneGo/api/wechat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/onesPro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/onesPro/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/onesPro/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="51" column="52" lean-forward="true" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+            <state relative-caret-position="513">
+              <caret line="52" column="50" lean-forward="true" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
               <folding>
                 <element signature="e#630#666#0" expanded="true" />
               </folding>
@@ -29,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oneGo/api/wechat.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -119,8 +117,8 @@
         <option value="$PROJECT_DIR$/Public/logger.py" />
         <option value="$PROJECT_DIR$/oneGo/api/CaseChoice.py" />
         <option value="$PROJECT_DIR$/static/jss/index.js" />
-        <option value="$PROJECT_DIR$/onesPro/urls.py" />
         <option value="$PROJECT_DIR$/oneGo/api/wechat.py" />
+        <option value="$PROJECT_DIR$/onesPro/urls.py" />
       </list>
     </option>
   </component>
@@ -234,12 +232,12 @@
       <updated>1567044054557</updated>
       <workItem from="1567044055899" duration="10432000" />
       <workItem from="1567135794916" duration="3612000" />
-      <workItem from="1569745910526" duration="818000" />
+      <workItem from="1569745910526" duration="1282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18244000" />
+    <option name="totallyTimeSpent" value="18708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -575,16 +573,6 @@
     <entry file="file://$PROJECT_DIR$/static/member-password.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/onesPro/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="51" column="52" lean-forward="true" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-          <folding>
-            <element signature="e#630#666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oneGo/api/req_Debug.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -611,6 +599,16 @@
           <caret line="17" column="62" lean-forward="true" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
           <folding>
             <element signature="e#155#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/onesPro/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="52" column="50" lean-forward="true" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+          <folding>
+            <element signature="e#630#666#0" expanded="true" />
           </folding>
         </state>
       </provider>
