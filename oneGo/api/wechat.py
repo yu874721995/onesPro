@@ -20,4 +20,4 @@ def sendMsg(request):
     nonce = request.GET.get('nonce', None)
     echostr = request.GET.get('echostr', None)
     print(signature,timestamp,nonce,echostr)
-    return render(request,echostr)
+    return HttpResponse(echostr)
