@@ -14,5 +14,9 @@ import json
 import requests
 
 def sendMsg(request):
-    token = request.POST.get('token',None)
-    return HttpResponse(json.dumps({'status':1,'msg':'isok'}))
+    signature = request.GET.get('signature',None)
+    timestamp = request.GET.get('timestamp', None)
+    nonce = request.GET.get('nonce', None)
+    echostr = request.GET.get('echostr', None)
+    print(signature,timestamp,nonce,echostr)
+    return HttpResponse(json.dumps({'echostr':echostr}))
