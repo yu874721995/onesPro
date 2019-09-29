@@ -12,6 +12,7 @@ from django.http import HttpResponse
 from oneGo import models
 import json
 import requests
+from django.shortcuts import render
 
 def sendMsg(request):
     signature = request.GET.get('signature',None)
@@ -19,4 +20,4 @@ def sendMsg(request):
     nonce = request.GET.get('nonce', None)
     echostr = request.GET.get('echostr', None)
     print(signature,timestamp,nonce,echostr)
-    return HttpResponse(json.dumps({'echostr':echostr}))
+    return render(request,echostr)
