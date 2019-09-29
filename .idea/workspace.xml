@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/jss/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/jss/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,23 +17,17 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/member-password.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-923" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/order-add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1835" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/order-list1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6186" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -44,37 +37,29 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/role-add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1445" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/welcome1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3659" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/welcome.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3260" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+            <state relative-caret-position="570">
+              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -82,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/jss/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="59" lean-forward="true" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+            <state relative-caret-position="342">
+              <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -102,10 +87,11 @@
       <find>192.168.10.123</find>
       <find>47.93.244.11:9001</find>
       <find>yushifamily.club</find>
+      <find>www.yushifamily.club</find>
     </findStrings>
     <replaceStrings>
-      <replace>yushifamily.club</replace>
       <replace>www.yushifamily.club</replace>
+      <replace>yushifamily.club</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -157,6 +143,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,7 +198,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,17 +268,18 @@
       <updated>1567044054557</updated>
       <workItem from="1567044055899" duration="10432000" />
       <workItem from="1567135794916" duration="3612000" />
+      <workItem from="1569745910526" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16738000" />
+    <option name="totallyTimeSpent" value="18025000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1130064" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -319,42 +306,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3260" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/welcome1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3659" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/user.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/unicode.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/role-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1445" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/order-list1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6186" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/order-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1835" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/member-password.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-923" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/member-list1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27" />
@@ -581,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/jss/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="59" lean-forward="true" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oneGo/siteathome/task.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -625,13 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -664,6 +601,44 @@
           <folding>
             <element signature="e#159#195#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/member-password.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/order-add.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/order-list1.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/unicode.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/role-add.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/welcome1.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/welcome.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jss/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
         </state>
       </provider>
     </entry>
