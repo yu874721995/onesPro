@@ -50,7 +50,7 @@ urlpatterns = [
     re_path('queryForOur',case().queryForOur),
     re_path('caseList',case().caseList),
     re_path('batchExecution',case().batchExecution),
-    re_path('/wechat/sendMsg',wechatview.sendMsg)
+    re_path(r'/wechat/sendMsg',wechatview.sendMsg)
 
 
 ]
