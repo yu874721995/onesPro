@@ -21,6 +21,7 @@ from oneGo.api.userList import user_list as users
 from oneGo.api.req_Debug import req_debug as req
 from oneGo.api.login import Login as login
 from oneGo.api.CaseChoice import caseChoice as case
+from oneGo.api import wechat as wechatview
 
 
 urlpatterns = [
@@ -49,7 +50,7 @@ urlpatterns = [
     re_path('queryForOur',case().queryForOur),
     re_path('caseList',case().caseList),
     re_path('batchExecution',case().batchExecution),
-    re_path('/wechat/sendMsg',case().batchExecution)
+    re_path('/wechat/sendMsg',wechatview.sendMsg)
 
 
 ]
