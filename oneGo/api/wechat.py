@@ -15,9 +15,5 @@ import requests
 from django.shortcuts import render
 
 def sendMsg(request):
-    signature = request.GET.get('signature',None)
-    timestamp = request.GET.get('timestamp', None)
-    nonce = request.GET.get('nonce', None)
-    echostr = request.GET.get('echostr', None)
-    print(signature,timestamp,nonce,echostr)
-    return HttpResponse(echostr)
+    print(request)
+    return HttpResponse('ss')
