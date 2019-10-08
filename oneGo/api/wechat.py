@@ -19,12 +19,12 @@ from wechat_sdk import WechatBasic
 def sendMsg(request):
     response = None
     try:
-        token = request.GET.get('token',None)
+
         openid = request.GET.get('openid',None)
         signature = request.GET.get('signature',None)
         timestamp = request.GET.get('timestamp',None)
         nonce = request.GET.get('nonce',None)
-        wechat = WechatBasic(token=token)
+        wechat = WechatBasic()
         body_text = request.body
 
         if wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
