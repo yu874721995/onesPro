@@ -17,6 +17,7 @@ from wechat_sdk import WechatBasic
 
 
 def sendMsg(request):
+    response = None
     try:
         token = request.GET.get('token',None)
         openid = request.GET.get('openid',None)
@@ -25,7 +26,7 @@ def sendMsg(request):
         nonce = request.GET.get('nonce',None)
         wechat = WechatBasic(token=token)
         body_text = request.body
-        response = None
+
         if wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
             wechat.parse_data(body_text)
             message = wechat.get_message()
