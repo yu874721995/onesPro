@@ -44,9 +44,13 @@ def sendMsg(request):
                     reply_list = re.findall(r'\"content\":\"(.+?)\\r\\n\"', html_doc)
                     response_xiaoi = reply_list[-1]
                     if '我是小i机器人' in response_xiaoi:
-                        response_xiaoi.replace('我是小i机器人','我是四只肥仔的老母亲')
+                        response_xiaoi.replace('我是小i机器人','我是老母亲')
                     if '我是机器人' in response_xiaoi:
                         response_xiaoi.replace('我是机器人', '哈哈哈哈哈恍恍惚惚')
+                    if '小i' in response_xiaoi:
+                        response_xiaoi.replace('小i', '老母亲')
+                    if '小i机器人' in response_xiaoi:
+                        response_xiaoi.replace('小i机器人', '老母亲')
                     response = wechat.response_text(response_xiaoi)
             elif message.type == 'image':
                 response = wechat.response_text(u'图片')
