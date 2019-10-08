@@ -15,7 +15,10 @@ import requests
 from django.shortcuts import render
 
 def sendMsg(request):
-    xml = request.raw_data()
-    print(xml)
-    print(request)
+    try:
+        xml = request.raw_data()
+        print(xml)
+        print(request)
+    except Exception as e:
+        print(e)
     return HttpResponse('ss')
