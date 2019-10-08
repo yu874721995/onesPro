@@ -43,7 +43,7 @@ def sendMsg(request):
                     html_doc = link.read().decode()
                     reply_list = re.findall(r'\"content\":\"(.+?)\\r\\n\"', html_doc)
                     response_xiaoi = reply_list[-1]
-                    response_o = response_xiaoi
+                    response_o = response_xiaoi.replace(r'\"','')
                     if '我是小i机器人' in response_xiaoi:
                         response_o = response_xiaoi.replace('我是小i机器人','我是老母亲')
                     if '我是机器人' in response_xiaoi:
