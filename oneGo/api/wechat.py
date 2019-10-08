@@ -34,7 +34,7 @@ def sendMsg(request):
                 if message.content == 'wechat':
                     response = wechat.response_text(u'^_^')
                 else:
-                    response = wechat.response_text(u'文字')
+                    response = wechat.response_text(u'别问，问就是没调好')
             elif message.type == 'image':
                 response = wechat.response_text(u'图片')
             else:
