@@ -54,10 +54,10 @@ def sendMsg(request):
             elif message.type == 'image':
                 response = wechat.response_text(u'图片')
             else:
-                response = wechat.response_text(u'这个我还看不懂，不好意思，要不你给我转个账深入学习学习？')
+                response = wechat.response_text(u'这么难的问题，你不是为难我胖虎吗')
     except Exception as e:
         print(e)
-        return HttpResponse(wechat.response_text(u'快告诉我妈，我生病了，她的电话是18664577769'))
+        return HttpResponse(wechat.response_text(u'这么难的问题，你不是为难我胖虎吗'))
 
 
     return HttpResponse(response)
