@@ -42,7 +42,12 @@ def sendMsg(request):
                         "http://nlp.xiaoi.com/robot/webrobot?&callback=__webrobot_processMsg&data=%7B%22sessionId%22%3A%22ff725c236e5245a3ac825b2dd88a7501%22%2C%22robotId%22%3A%22webbot%22%2C%22userId%22%3A%227cd29df3450745fbbdcf1a462e6c58e6%22%2C%22body%22%3A%7B%22content%22%3A%22" + x + "%22%7D%2C%22type%22%3A%22txt%22%7D")
                     html_doc = link.read().decode()
                     reply_list = re.findall(r'\"content\":\"(.+?)\\r\\n\"', html_doc)
-                    response = wechat.response_text(reply_list[-1])
+                    response_xiaoi = reply_list[-1]
+                    if '我是小i机器人' in response_xiaoi:
+                        response_xiaoi.replace('我是小i机器人','我是四只肥仔的老母亲')
+                    if '我是机器人' in response_xiaoi:
+                        response_xiaoi.replace('我是机器人', '哈哈哈哈哈恍恍惚惚')
+                    response = wechat.response_text(response_xiaoi)
             elif message.type == 'image':
                 response = wechat.response_text(u'图片')
             else:
