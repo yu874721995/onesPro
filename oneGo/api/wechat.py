@@ -18,6 +18,7 @@ def sendMsg(request):
     try:
         xml = request.body
         print(xml)
+        print(type(xml))
         print(request)
     except Exception as e:
         print(e)
