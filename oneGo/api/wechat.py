@@ -16,7 +16,7 @@ from django.shortcuts import render
 
 def sendMsg(request):
     try:
-        xml = request.raw_data()
+        xml = request.body()
         print(xml)
         print(request)
     except Exception as e:
