@@ -20,17 +20,15 @@ import re
 
 def sendMsg(request):
     response = None
+    openid = request.GET.get('openid', None)
+    signature = request.GET.get('signature', None)
+    timestamp = request.GET.get('timestamp', None)
+    nonce = request.GET.get('nonce', None)
+    wechat = WechatBasic(token='yu874721995')
+    body_text = request.body
+    wechat.parse_data(body_text)
     try:
-
-        openid = request.GET.get('openid',None)
-        signature = request.GET.get('signature',None)
-        timestamp = request.GET.get('timestamp',None)
-        nonce = request.GET.get('nonce',None)
-        wechat = WechatBasic(token='yu874721995')
-        body_text = request.body
-
         if wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
-            wechat.parse_data(body_text)
             message = wechat.get_message()
             print(message.content)
             if message.type == 'text':
@@ -56,9 +54,10 @@ def sendMsg(request):
             elif message.type == 'image':
                 response = wechat.response_text(u'图片')
             else:
-                response = wechat.response_text(u'未知')
+                response = wechat.response_text(u'这个我还看不懂，不好意思，要不你给我转个账深入学习学习？')
     except Exception as e:
         print(e)
+        return HttpResponse(wechat.response_text(u'快告诉我妈，我生病了，她的电话是18664577769'))
 
 
     return HttpResponse(response)
