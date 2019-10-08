@@ -24,7 +24,7 @@ def sendMsg(request):
         signature = request.GET.get('signature',None)
         timestamp = request.GET.get('timestamp',None)
         nonce = request.GET.get('nonce',None)
-        wechat = WechatBasic()
+        wechat = WechatBasic(token='yu874721995')
         body_text = request.body
 
         if wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
