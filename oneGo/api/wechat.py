@@ -30,7 +30,7 @@ def sendMsg(request):
     try:
         if wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
             message = wechat.get_message()
-            print(message.content)
+            print(message)
             if message.type == 'text':
                 if message.content == 'wechat':
                     response = wechat.response_text(u'^_^')
