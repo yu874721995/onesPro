@@ -55,6 +55,8 @@ def sendMsg(request):
                     response = wechat.response_text(response_o)
             elif message.type == 'image':
                 response = wechat.response_text(u'图片')
+            elif message.type == 'subscribe':
+                response = wechat.response_text(u'谢谢长得这么好看还这么可爱的你来关注老母亲，以后让我们一起变美吧，嘻嘻')
             else:
                 response = wechat.response_text(u'这么难的问题，你不是为难我胖虎吗')
     except Exception as e:
