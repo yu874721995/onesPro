@@ -59,14 +59,5 @@ def sendMsg(request):
     except Exception as e:
         print(e)
         return HttpResponse(wechat.response_text(u'这么难的问题，你不是为难我胖虎吗'))
-
-
+    print(response)
     return HttpResponse(response)
-    # try:
-    #     xml = request.body
-    #     print(xml)
-    #     print(type(xml))
-    #     print(request)
-    # except Exception as e:
-    #     print(e)
-    # return HttpResponse('ss')
