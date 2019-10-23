@@ -29,6 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+STATIC_ROOT = os.path.join(BASE_DIR,'/data/admin/onesPro')
 
 # Application definition
 
