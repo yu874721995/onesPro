@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-STATIC_ROOT = os.path.join(BASE_DIR,'/data/admin/onesPro')
+
 
 # Application definition
 
@@ -75,9 +75,12 @@ TEMPLATES = [
 
 
 STATICFILES_DIRS = [
-os.path.join(BASE_DIR, "static"),
-'/onesPro/static/',
+os.path.join(BASE_DIR, "static")
 ]
+STATIC_ROOT = os.path.join(BASE_DIR,'/home/admin/onesPro/static')
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 WSGI_APPLICATION = 'onesPro.wsgi.application'
 
@@ -141,4 +144,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+

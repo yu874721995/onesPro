@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="70c26eed-7d68-465f-9c58-dd754fc39914" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="1168">
+              <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -130,6 +128,7 @@
       <find>47.93.244.11:9001</find>
       <find>yushifamily.club</find>
       <find>www.yushifamily.club</find>
+      <find>STATIC_ROOT</find>
     </findStrings>
     <replaceStrings>
       <replace>www.yushifamily.club</replace>
@@ -165,13 +164,13 @@
         <option value="$PROJECT_DIR$/static/js/caseList.js" />
         <option value="$PROJECT_DIR$/oneGo/api/login.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/db/backends/mysql/base.py" />
-        <option value="$PROJECT_DIR$/onesPro/settings.py" />
         <option value="$PROJECT_DIR$/Public/logger.py" />
         <option value="$PROJECT_DIR$/oneGo/api/CaseChoice.py" />
         <option value="$PROJECT_DIR$/static/jss/index.js" />
         <option value="$PROJECT_DIR$/onesPro/urls.py" />
         <option value="$PROJECT_DIR$/oneGo/api/wechat.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/onesPro/settings.py" />
       </list>
     </option>
   </component>
@@ -291,15 +290,15 @@
       <workItem from="1571368847801" duration="1198000" />
       <workItem from="1571621806882" duration="599000" />
       <workItem from="1571716746500" duration="258000" />
-      <workItem from="1571824892002" duration="1397000" />
+      <workItem from="1571824892002" duration="2087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40382000" />
+    <option name="totallyTimeSpent" value="41072000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20362474" />
@@ -674,8 +673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/onesPro/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="1168">
+          <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
         </state>
       </provider>
     </entry>
