@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'oneGo',
     'corsheaders',
     'django_apscheduler',
+    'werkzeug_debugger_runserver',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
