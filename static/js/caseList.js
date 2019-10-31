@@ -14,7 +14,7 @@ function batchExecution() {
         caseId.push(checkout.data[i].case_id)
     }
     console.log(caseId)
-    $.post('http://yushifamily.club/batchExecution',{caseId:JSON.stringify(caseId)},function (data) {
+    $.post('https://yushifamily.club/batchExecution',{caseId:JSON.stringify(caseId)},function (data) {
         var json_msg = JSON.parse(data).msg
         layer.msg(json_msg)
 

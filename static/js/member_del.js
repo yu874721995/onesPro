@@ -1,5 +1,5 @@
 $(function() {
-    $.post('http://yushifamily.club/userDelList',function(data){
+    $.post('https://yushifamily.club/userDelList',function(data){
         json_data = JSON.parse(data)
         var _html,sex,status,num = ''
         num = 0
