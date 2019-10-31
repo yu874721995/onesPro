@@ -74,8 +74,9 @@ TEMPLATES = [
 ]
 
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),'/home/admin/onesPro/static/',)
-STATIC_ROOT = os.path.join(BASE_DIR,'/home/admin/onesPro/static/')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "/static/"),)
+STATIC_ROOT = '/home/admin/onesPro/static/'
+STATIC_URL = '/static/'
 
 
 WSGI_APPLICATION = 'onesPro.wsgi.application'
