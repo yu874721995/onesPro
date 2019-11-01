@@ -26,7 +26,7 @@ def sendMsg(request):
     if s == 1:
         ec = request.GET.get('echostr',None)
         print(ec)
-        return ec
+        return HttpResponse(ec)
     response = None
     openid = request.GET.get('openid', None)
     signature = request.GET.get('signature', None)
