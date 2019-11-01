@@ -130,7 +130,7 @@ layui.use('form', function(){
           assertText:JSON.stringify(assertTexts)
       };
       console.log(data['field'])
-      $.post('http://yushifamily.club/SaveTestCase',req,function(date){
+      $.post('https://yushifamily.club/SaveTestCase',req,function(date){
           var json_date;
           json_date = JSON.parse(date).data;
           json_status = JSON.parse(date).status;
@@ -164,8 +164,8 @@ var formSelects = layui.formSelects;
         });
  formSelects.data('select15', 'server', {
             //
-            //http://yapi.demo.qunar.com/mock/9813/layui/citys
-            url: 'http://yushifamily.club/queryForOur',
+            //https://yapi.demo.qunar.com/mock/9813/layui/citys
+            url: 'https://yushifamily.club/queryForOur',
             linkage: true,
             linkageWidth: 130
         });
