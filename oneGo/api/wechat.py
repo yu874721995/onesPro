@@ -25,6 +25,7 @@ def sendMsg(request):
     s = 1
     if s == 1:
         ec = request.GET.get('echostr',None)
+        print(ec)
         return ec
     response = None
     openid = request.GET.get('openid', None)
