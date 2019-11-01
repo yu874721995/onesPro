@@ -22,6 +22,10 @@ from wechat_sdk.messages import (
 
 
 def sendMsg(request):
+    s = 1
+    if s == 1:
+        ec = request.GET.get('echostr',None)
+        return ec
     response = None
     openid = request.GET.get('openid', None)
     signature = request.GET.get('signature', None)
