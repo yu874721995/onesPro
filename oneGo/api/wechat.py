@@ -22,11 +22,12 @@ from wechat_sdk.messages import (
 
 
 def sendMsg(request):
-    s = 1
-    if s == 1:
-        ec = request.GET.get('echostr',None)
-        print(ec)
-        return HttpResponse(ec)
+    #应付微信开发者验证......更换url或其他配置时使用
+    # s = 1
+    # if s == 1:
+    #     ec = request.GET.get('echostr',None)
+    #     print(ec)
+    #     return HttpResponse(ec)
     response = None
     openid = request.GET.get('openid', None)
     signature = request.GET.get('signature', None)
