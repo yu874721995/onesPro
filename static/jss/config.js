@@ -8,4 +8,4 @@ function getport(rl) {
     };
 };
 
-url = getport('master')
+url = getport('test')

@@ -10,10 +10,10 @@ class UserInfo(models.Model):#用户表
     status = models.CharField('是否禁用',max_length=20, default=1)#是否禁用
     usernikename = models.CharField('用户昵称',max_length=20)
     password = models.CharField('用户密码',max_length=20,default='123456')
-    telphone = models.CharField('手机号码',max_length=20,default='NULL')
+    telphone = models.CharField('手机号码',max_length=20,default='')
     sex = models.CharField('性别',max_length=20, default=1)
     headimg = models.CharField('头像',max_length=100, default='/image/default/headimage.png')
-    wxopenid = models.CharField('微信openid',max_length=100,default='NULL')
+    wxopenid = models.CharField('微信openid',max_length=100,default='')
     create_time = models.DateTimeField('创建时间',default=timezone.now)
     old_login_time = models.DateTimeField('最后登录时间',default=timezone.now)
 
