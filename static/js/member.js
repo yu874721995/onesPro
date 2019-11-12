@@ -1,6 +1,6 @@
 
 $(function() {
-    $.post('https://yushifamily.club/userList',function(data){
+    $.post(url+'/userList',function(data){
         json_data = JSON.parse(data)
         var _html,sex,status,num = ''
         num = 1

@@ -1,4 +1,5 @@
-function one(){$.post('https://yushifamily.club/session_test',function (data) {
+
+function one(){$.post(url+'/session_test',function (data) {
     // console.log('+++++++++++++++++++++++'+data)
       var userid = data.data.userid;
       document.getElementById('msg').innerHTML=userid
@@ -26,7 +27,7 @@ function one(){$.post('https://yushifamily.club/session_test',function (data) {
 })()
 
 function username() {
-        $.post('https://yushifamily.club/username' , function (data) {
+        $.post(url+'/username' , function (data) {
         var json_data = JSON.parse(data);
         var username = json_data.data.username;
         $('#customerName').text(username);
@@ -35,7 +36,7 @@ function username() {
     function userhistory() {
         var _html = '';
         var search = $('#input-find').val();
-        $.post('https://yushifamily.club/UserHistory' ,{search:search},function (data) {
+        $.post(url+'/UserHistory' ,{search:search},function (data) {
             json_data = JSON.parse(data);
             for(var i=json_data.data.length-1;i>=0;i--){
                 //此处必须用div包裹，否则无法渲染！
@@ -47,7 +48,7 @@ function username() {
 
     function deleteHistory(r) {
     req = {caseId:json_data.data[r].id};
-        $.post('https://yushifamily.club/deleteHistory' , req,function (data) {
+        $.post(url+'/deleteHistory' , req,function (data) {
             userhistory()
         })
     }
@@ -174,7 +175,7 @@ function username() {
                 json_header:request_header
             }
             //发送异步请求
-            $.post('https://yushifamily.club/reqJson', req, function (data) {
+            $.post(url+'/reqJson', req, function (data) {
                 var json_response = JSON.parse(data);
                 if(json_response.msg=='登录超时'){
                     layer.msg('登录过期，请重新登录')
@@ -204,7 +205,7 @@ function username() {
                 CaseName:CaseName,
             }
             //发送请求
-            $.post('https://yushifamily.club/reqJson', get_req, function (data) {
+            $.post(url+'/reqJson', get_req, function (data) {
                 userhistory();
                 var json_response = JSON.parse(data);
                 var str_rep = formatJson(json_response.data)
@@ -225,11 +226,11 @@ function username() {
                     postdata.push(mn);
                 }
                 var req = {url:url,data:postdata,type:'post',CaseName:CaseName};
-                $.post('https://yushifamily.club/SaveTestCase', req , function (data){
+                $.post(url+'/SaveTestCase', req , function (data){
 
                 });
             }else{
-                $.post('https://yushifamily.club/SaveTestCase', {url:url,key:key,value:value,type:'post'}, function (data){
+                $.post(url+'/SaveTestCase', {url:url,key:key,value:value,type:'post'}, function (data){
 
                 })
             }
@@ -243,11 +244,11 @@ function username() {
                     postdata.push(mn);
                 }
                 var req = {url:url,data:postdata,type:'get'};
-                $.post('https://yushifamily.club/SaveTestCase', req , function (data){
+                $.post(url+'/SaveTestCase', req , function (data){
 
                 });
             }else{
-                $.post('https://yushifamily.club/SaveTestCase', {url:url,key:key,value:value,type:'get'}, function (data){
+                $.post(url+'/SaveTestCase', {url:url,key:key,value:value,type:'get'}, function (data){
 
                 })
             }
@@ -318,7 +319,7 @@ function openAdd(){
               body.find('#caseurl').val(url);
               postdata == '' ?body.find('#bodyText').val(request_body) : body.find('#bodyText').val(JSON.stringify(postdata));
               postheader == '' ?body.find('#headerText').val(request_header) : body.find('#headerText').val(JSON.stringify(postheader))
-              $.post('https://yushifamily.club/queryForProduct',{},function (data) {
+              $.post(url+'/queryForProduct',{},function (data) {
                   var _html,json_data;
                   json_data = JSON.parse(data).data
                   for (var i = 0; i < json_data.length; i++) {

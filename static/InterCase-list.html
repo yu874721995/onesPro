@@ -12,6 +12,7 @@
         <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
         <script src="./lib/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="./js/xadmin.js"></script>
+        <script src="/static/jss/config.js"></script>
         <script type="text/javascript" src="./jss/indexs.js"></script>
 
         <style>
@@ -118,7 +119,7 @@ layui.use('table', function(){
     elem: '#demo'
     ,height: 473
       ,method:'POST'
-    ,url: 'https://yushifamily.club/caseList' //数据接口
+    ,url: url+'/caseList' //数据接口
     ,page: true //开启分页
     ,cols: [[ //表头
        {fixed: 'left',type:'checkbox',title: '', width:100}

@@ -1,6 +1,6 @@
 
 $(function() {
-    $.post('https://yushifamily.club/session_test',function (data) {
+    $.post(url+'/session_test',function (data) {
                       console.log(data)
                       var s = JSON.parse(data).data.username;
                       var time = JSON.parse(data).data.time
