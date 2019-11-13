@@ -84,7 +84,7 @@
                     //发异步，把数据提交
                     var username = $('#L_username').val();
                     var password = $('#L_pass').val();
-                    $.post(url+'/addUser',{username:username,password:password},function(data){
+                    $.post(hostUrl+'/addUser',{username:username,password:password},function(data){
                         json_status = JSON.parse(data).status
                         json_msg = JSON.parse(data).msg
                         if(json_status == 1){
