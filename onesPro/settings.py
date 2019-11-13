@@ -30,6 +30,11 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
+IMAGE_SIZE_LIMIT = 10*1024*1024
+WEB_HOST_NAME = 'https://yushifamily.club'
+WEB_IMAGE_SERVER_PATH = '/static/images/'
+IMAGE_SAVING_PATH = os.path.abspath(os.getcwd())+'/static/images/'
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -23,6 +23,7 @@ from oneGo.api.login import Login as login
 from oneGo.api.CaseChoice import caseChoice as case
 from oneGo.api import wechat as wechatview
 from xcx.api.loginAndRegite import login_and_reg as xcx_login
+from oneGo.api import uploadimg
 
 urlpatterns = [
     #re_path('',oneviews.login),
@@ -51,7 +52,8 @@ urlpatterns = [
     re_path('caseList',case().caseList),
     re_path('batchExecution',case().batchExecution),
     re_path('sendMsg',wechatview.sendMsg),
-    re_path('getUserInfo',xcx_login().getUserInfo)
+    re_path('getUserInfo',xcx_login().getUserInfo),
+    re_path('uploadImage',uploadimg.uploadImage)
 
 
 ]
