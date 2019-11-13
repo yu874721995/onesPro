@@ -61,7 +61,7 @@ MIDDLEWARE = [
 #增加跨越配置
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = ('https://yushifamily.club')
+# CORS_ORIGIN_WHITELIST = ('https://yushifamily.club')
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET',
