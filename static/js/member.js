@@ -1,6 +1,6 @@
 
 $(function() {
-    $.post(url+'/userList',function(data){
+    $.post(hostUrl+'/userList',function(data){
         json_data = JSON.parse(data)
         var _html,sex,status,num = ''
         num = 1

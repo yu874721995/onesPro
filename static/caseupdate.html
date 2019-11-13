@@ -131,7 +131,7 @@ layui.use('form', function(){
           assertText:JSON.stringify(assertTexts)
       };
       console.log(data['field'])
-      $.post(url+'/SaveTestCase',req,function(date){
+      $.post(hostUrl+'/SaveTestCase',req,function(date){
           var json_date;
           json_date = JSON.parse(date).data;
           json_status = JSON.parse(date).status;
@@ -166,7 +166,7 @@ var formSelects = layui.formSelects;
  formSelects.data('select15', 'server', {
             //
             //https://yapi.demo.qunar.com/mock/9813/layui/citys
-            url: url+'/queryForOur',
+            url: hostUrl+'/queryForOur',
             linkage: true,
             linkageWidth: 130
         });

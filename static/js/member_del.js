@@ -1,5 +1,5 @@
 $(function() {
-    $.post(url+'/userDelList',function(data){
+    $.post(hostUrl+'/userDelList',function(data){
         json_data = JSON.parse(data)
         var _html,sex,status,num = ''
         num = 0
