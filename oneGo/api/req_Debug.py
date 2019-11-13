@@ -76,9 +76,6 @@ class req_debug():
 
             # 存入历史
             try:
-                if user_id == 16 or user_id == '16':
-                    return HttpResponse(json.dumps({'status': 1, 'msg': '操作成功', 'data': resopnse_body}))
-
                 dic = {'host': url, 'userid': user_id, 'response_body': resopnse_body, 'method': types,'json_body':json_data,'json_header':json_header,
                        'casename': CaseName}
                 models.user_host.objects.create(**dic)

@@ -61,6 +61,7 @@ MIDDLEWARE = [
 #增加跨越配置
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = ('https://yushifamily.club')
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET',
@@ -84,6 +85,9 @@ CORS_ALLOW_HEADERS = (
     'Pragma',
 )
 
+CRONJOBS = [
+    ('* * * * * *','oneGo.siteathome.task')
+]
 
 ROOT_URLCONF = 'onesPro.urls'
 
@@ -117,6 +121,7 @@ SESSION_COOKIE_NAME = "sessionid"
 SESSION_COOKIE_AGE = 10
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+ROOT_URLCONF = 'onesPro.urls'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -165,7 +170,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
