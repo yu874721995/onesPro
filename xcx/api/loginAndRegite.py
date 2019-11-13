@@ -18,17 +18,17 @@ from ruamel import yaml
 import logging
 import datetime
 
-logger = logging.getLogger('django')
-
+logger = logging.getLogger(__name__)
 
 class login_and_reg():
 
+
     def getUserInfo(self,request):
-        logger.info('request_body:',request.POST)
-        nikeName = request.POST.get('nikeName',None)
-        openId = request.POST.get('openId',None)
-        sex = request.POST.get('sex',None)
-        headimg = request.POST.get('headImg',None)
+        logger.info('request_body:',request)
+        nikeName = request.GET.get('nikeName',None)
+        openId = request.GET.get('openId',None)
+        sex = request.GET.get('sex',None)
+        headimg = request.GET.get('headImg',None)
         if nikeName == None or openId == None or sex == None or headimg ==None or nikeName == '' or openId == '' or sex == '' or headimg == '':
             return HttpResponse(json.dumps({'status':3,'msg':'参数错误'}))
         query = models.UserInfo.objects.filter(wxopenid=openId).values()
