@@ -8,4 +8,4 @@ function getport(rl) {
     };
 };
 
-hostUrl = getport('test')
+hostUrl = getport('master')
