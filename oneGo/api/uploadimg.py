@@ -10,7 +10,7 @@
 '''
 from django.views.decorators.http import require_http_methods
 import filetype, hashlib
-from one.models import UploadImage
+from oneGo.models import UploadImage
 from django.conf import settings
 from django.http import HttpResponse
 import json
