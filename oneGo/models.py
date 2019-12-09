@@ -103,12 +103,19 @@ class UploadImage(models.Model):
         filename = self.file_md5 + "." + self.file_type
         url = settings.WEB_HOST_NAME + settings.WEB_IMAGE_SERVER_PATH + filename
         return url
+    def getImageBgUrl(self):
+        filename = self.file_md5 + "new." + self.file_type
+        url = settings.WEB_HOST_NAME + settings.WEB_IMAGE_SERVER_PATH + filename
+        return url
 
     # 获取本图片在本地的位置，即你的文件系统的路径，图片会保存在这个路径下
     def getImagePath(self):
         filename = self.file_md5 + "." + self.file_type
         path = settings.IMAGE_SAVING_PATH + filename
-        print(path)
+        return path
+    def getImagePaths(self):
+        filename = self.file_md5 + "new." + self.file_type
+        path = settings.IMAGE_SAVING_PATH + filename
         return path
 
     def __str__(self):

@@ -10,7 +10,7 @@
 '''
 from django.views.decorators.http import require_http_methods
 import filetype, hashlib
-from oneGo.models import UploadImage
+from one.models import UploadImage
 from django.conf import settings
 from django.http import HttpResponse
 import json
@@ -53,8 +53,25 @@ def uploadImage(request):
     # 记录日志，这一步可有可无，可定制
     # FileLogger.log_info("upload_image", uploadImg, FileLogger.IMAGE_HANDLER)
     print(5)
+    try:
+        import requests
+
+        response = requests.post(
+            'https://api.remove.bg/v1.0/removebg',
+            files={'image_file': open(uploadImg.getImagePath(), 'rb')},
+            data={'size': 'auto'},
+            headers={'X-Api-Key': 'JyA8RC9NpETgGdkmKv73JyyY'},
+        )
+        if response.status_code == requests.codes.ok:
+            with open(uploadImg.getImagePaths(), 'wb') as out:
+                out.write(response.content)
+        else:
+            print("Error:", response.status_code, response.text)
+    except Exception as e:
+        print(e)
+        return HttpResponse(json.dumps({'status':1,"msg":'报错了'}))
     # 返回图片的url以供访问
-    return HttpResponse(json.dumps({'status':1,"url": uploadImg.getImageUrl()}))
+    return HttpResponse(json.dumps({'status':1,"url": uploadImg.getImageUrl(),'g_url':uploadImg.getImageBgUrl()}))
 
 
 # 检测文件类型
@@ -80,7 +97,7 @@ def pCalculateMd5(file):
 
 # 文件类型过滤 我们只允许上传常用的图片文件
 def pIsAllowedImageType(ext):
-    if ext in ["png", "jpeg", "jpg"]:
+    if ext in ["png", "jpeg", "jpg","gif"]:
         return True
     return False
 
