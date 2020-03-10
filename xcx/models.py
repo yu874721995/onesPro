@@ -5,6 +5,8 @@ from django.db import models
 from datetime import datetime
 import django.utils.timezone as timezone
 
+
+#django 暂时不支持字段注释
 class UserInfo(models.Model):#用户表
     id = models.AutoField(primary_key=True,blank=False)
     status = models.CharField('是否禁用',max_length=20, default=1)#是否禁用
@@ -16,6 +18,64 @@ class UserInfo(models.Model):#用户表
     wxopenid = models.CharField('微信openid',max_length=100,default='')
     create_time = models.DateTimeField('创建时间',default=timezone.now)
     old_login_time = models.DateTimeField('最后登录时间',default=timezone.now)
+
+class Comodity_type(models.Model):#商品类型表
+    class Meta:
+        verbose_name = '商品类型表'
+    id = models.AutoField(primary_key=True,blank=False,verbose_name='商品类型id')
+    status = models.CharField(max_length=20, default=1,verbose_name='是否禁用 1用 0禁')#是否禁用
+    Comodity_type_name = models.CharField(max_length=20,verbose_name='商品类型名称')
+
+class Comcp_mk(models.Model):
+    id = models.AutoField(primary_key=True, blank=False)
+    status = models.CharField(max_length=20, default=1)
+    type = models.CharField(max_length=20, default=1)
+    name = models.CharField(max_length=200, blank=False)
+    subjection = models.CharField(max_length=20, default='')
+    create_date = models.DateTimeField(default=timezone.now)
+
+
+
+class Commodity(models.Model):#商品表
+    class Meta:
+        # 表备注
+        verbose_name = "商品表"
+    id = models.AutoField(primary_key=True,blank=False,verbose_name='商品id')
+    status = models.CharField(max_length=20, default=1, verbose_name='是否禁用 1用 0禁')  # 是否禁用
+    Commodity_name = models.CharField(max_length=20,verbose_name='商品名称')
+    Comodity_type_id = models.ForeignKey('Comodity_type',on_delete=models.CASCADE,verbose_name='商品类型')
+    Comodity_introduction = models.CharField(max_length=200,default='暂无介绍',verbose_name='商品简介')
+    Comodity_Specifications = models.CharField(max_length=20,verbose_name='商品规格')
+    Commodity_Company = models.CharField(max_length=20,verbose_name='商品计量单位')
+    Commodity_money = models.CharField(max_length=20,verbose_name='商品价格')
+    Commodity_details = models.TextField(max_length=2000,verbose_name='商品详情')
+    create_time = models.DateTimeField(default=timezone.now)
+    old_login_time = models.DateTimeField(default=timezone.now)
+
+
+class Commodity_pic(models.Model):#商品图片表
+    class Meta:
+        # 表备注
+        verbose_name = "商品图片表"
+    id = models.AutoField(primary_key=True,blank=False,verbose_name='图片id')
+    status = models.CharField(max_length=20, default=1, verbose_name='是否禁用 1用 0禁')  # 是否禁用
+    Commodity_id = models.ForeignKey('Commodity',on_delete=models.CASCADE,verbose_name='商品id')
+    pic_path = models.CharField(max_length=200,verbose_name='商品图片路径')
+    create_time = models.DateTimeField(default=timezone.now)
+
+class Commodity_banner(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, verbose_name='记录id')
+    status = models.CharField(max_length=20, default=1, verbose_name='是否禁用 1用 0禁')  # 是否禁用
+    banner_path = models.CharField(max_length=20, default=1)# banner位置
+    banner_pic_path = models.CharField(max_length=200,verbose_name='banner图片路径')
+
+
+
+
+
+
+
+
 
 class Diary(models.Model):#日记表
     id = models.AutoField(primary_key=True,blank=False)
@@ -89,7 +149,7 @@ class Health_records(models.Model):
     MedicalLocation = models.CharField('医疗地点', max_length=20)
     doctor = models.CharField('医生名称', max_length=20)
     TreatmentCost = models.CharField('治疗花费', max_length=20)
-    SymptomsImage = models.TextField('关联照片',max_length=1000,default='null')
+    SymptomsImage = models.TextField('关联照片',max_length=1000,default='')
     type = models.CharField('是否公开', max_length=200,default=0)
     create_time = models.DateTimeField('提交时间', default=timezone.now)
     update_time = models.DateTimeField('最后更新时间', default=timezone.now)

@@ -30,6 +30,7 @@ class Login():
         query = models.UserInfo.objects.filter(username=username,status=1,useing=1).values()
         try:
             if query.__len__() > 0:
+                print(1)
                 if query[0]['password'] == password:
                     userid = query[0]['id']
                     request.session['username'] = username
@@ -42,6 +43,7 @@ class Login():
                 elif query[0]['password'] != password:
                     return HttpResponse(json.dumps({'status':2, 'msg': '密码错误'}))
             elif query.__len__() == 0:
+                print('1111111:',query)
                 return HttpResponse(json.dumps({'status':3, 'msg': '用户未注册'}))
             else:
                 return HttpResponse(json.dumps({'status':500, 'msg':'error'}))

@@ -31,6 +31,8 @@ urlpatterns = [
     re_path('session_test',users().session_test),
     re_path('index',indexviews.index),
     re_path('login',indexviews.login),
+    re_path('diary_index', indexviews.diary_index),
+    re_path('diary_login', indexviews.diary_login),
     re_path('Loginup',login().Loginup),
     re_path('goRegister',indexviews.goRegister),
     re_path('register',indexviews.register),
@@ -64,18 +66,18 @@ urlpatterns = [
 
 
 
-from apscheduler.schedulers.background import BackgroundScheduler
-from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job
-from oneGo.siteathome import task
-
-sched = BackgroundScheduler()
-sched.add_jobstore(DjangoJobStore(),'default')
-
-@register_job(sched,'cron',second='10')
-def my_task():
-    task.deletesession()
-try:
-    register_events(sched)
-    sched.start()
-except Exception as e:
-    sched.shutdown()
+# from apscheduler.schedulers.background import BackgroundScheduler
+# from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job
+# from oneGo.siteathome import task
+#
+# sched = BackgroundScheduler()
+# sched.add_jobstore(DjangoJobStore(),'default')
+#
+# @register_job(sched,'cron',second='10')
+# def my_task():
+#     task.deletesession()
+# try:
+#     register_events(sched)
+#     sched.start()
+# except Exception as e:
+#     sched.shutdown()

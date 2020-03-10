@@ -14,11 +14,21 @@ user_list = []
 def login(request):
     return render(request,'login.html')
 
+def diary_login(request):
+    print('??????????????????????????????????????????????????')
+    return render(request,'login_diary.html')
+
 def index(request):
     session_user = request.session.get('username',None)
     if session_user is None:
         return render(request, 'login.html')
     return render(request,'index.html')
+
+def diary_index(request):
+    session_user = request.session.get('username',None)
+    if session_user is None:
+        return render(request, 'login_diary.html')
+    return render(request,'index_diary.html')
 
 
 def goRegister(request):

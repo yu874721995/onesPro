@@ -33,6 +33,14 @@ function login() {
         }
         })};
 
+function qiece(i) {
+    if(i=='diary'){
+        console.log(i)
+        window.location.href = hostUrl + '/diary_login';
+    }else {
+        window.location.href = hostUrl + '/login';
+    }
+}
 
 //
 // }

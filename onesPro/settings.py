@@ -141,7 +141,7 @@ DATABASES = {
         'PASSWORD': '123456',      #密码
         'HOST': '127.0.0.1',    #IP
         'PORT': '3306',
-        'OPTIONS': { 'init_command': 'SET default_storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_unicode_ci;' }
+        'OPTIONS': { 'init_command': 'SET default_storage_engine=INNODB,character_set_connection=UTF8MB4,collation_connection=utf8mb4_unicode_ci;' }
     }
 }
 
