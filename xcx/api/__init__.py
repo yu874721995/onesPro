@@ -9,13 +9,30 @@
 @Software: PyCharm
 '''
 
-import requests, json, xlwt, xlrd,time
+import requests, json, xlwt, xlrd,time,threading
 
-# r = requests.post('http://api.tuke.huakmall.com/user/friend/index',data={
-#     'access_token':'eyJhbGciOiJITUFDU0hBMjU2IiwiaXNzIjoiRWFzeVN3b29sZSIsImV4cCI6MTYxNTI3NTYwNywic3ViIjpudWxsLCJuYmYiOjE1ODM3Mzk2MDcsImF1ZCI6bnVsbCwiaWF0IjoxNTgzNzM5NjA3LCJqdGkiOiJ2NDU3RzFIUURsIiwic2lnbmF0dXJlIjoiNmM1NWI0OGE1YzUyZDEwMmYzOGU4OGUwNGVmYzhmY2FkNWJhMDdhY2IyYjgyMjM0NDM5YjA2YTJjNTczNzhhYSIsInN0YXR1cyI6MSwiZGF0YSI6IjJpanU0cnhqYXQifQ%3D%3D',
-#     'limit':10000,
-#     'page':1
-# })
+def work():
+    f = xlrd.open_workbook('Excel_test.xls')
+    sheet = f.sheet_by_index(0)
+    cols = sheet.col_values(1)
+    url = ''
+    b = ''
+    for i in cols:
+        r = requests.post('http://api.tuke.huakmall.com/user/friend/add',data={
+            'access_token':'eyJhbGciOiJITUFDU0hBMjU2IiwiaXNzIjoiRWFzeVN3b29sZSIsImV4cCI6MTYxNTM2NzM3OSwic3ViIjpudWxsLCJuYmYiOjE1ODM4MzEzNzksImF1ZCI6bnVsbCwiaWF0IjoxNTgzODMxMzc5LCJqdGkiOiJ5YURPMDJ2MUZpIiwic2lnbmF0dXJlIjoiZTNmNTFmNWI5NmEzMmIwZDMyM2RhZTBiNTM1Njc1YjFjZTdmNjhjMGFkMDMwNWVhMGJhNTUyOWRjNTA3NzAxMCIsInN0YXR1cyI6MSwiZGF0YSI6ImxleWpwZGkyY3UifQ%3D%3D',
+            'user_id':i,
+            'remark':'test'
+        })
+        time.sleep(0.5)
+        print(r.json())
+        print('-------ok')
+    print('ok')
+
+t = threading.Thread()
+
+
+
+
 # rs = len(r.json()['info']['list'])
 # rs_l = r.json()['info']['list']
 # # with open('tuk.xlsx','wb') as f:
@@ -26,12 +43,6 @@ import requests, json, xlwt, xlrd,time
 #     worksheet.write(i,1,rs_l[i]['friend_user_id'])
 #     worksheet.write(i, 2, rs_l[i]['user']['name'])
 # workbook.save('Excel_test.xls')
-# f = xlrd.open_workbook('Excel_test.xls')
-# sheet = f.sheet_by_index(0)
-# cols = sheet.col_values(2)
-# url = ''
-# b = ''
-# for i in range(len(cols)):
-#     b = b + '"'+str(cols[i]).split('.')[0] +'"'+ ','
-# print(b)
+
+
 
