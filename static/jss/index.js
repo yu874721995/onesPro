@@ -41,7 +41,23 @@ function qiece(i) {
         window.location.href = hostUrl + '/login';
     }
 }
+function commit(){
+    $.post(hostUrl+'/commit',{
+    phone:$("#phone").val(),time:$('#time').val()},function(data){
+    alert('ok')})
+}
+function commits(){
+    $.post(hostUrl+'/hlshengji',{
+    phone:$("#phone").val(),time:$('#time').val()},function(data){
+    alert('ok')})
+}
+gaihuahua
 
+function gaihuahua(){
+    $.post(hostUrl+'/gaihuahua',{
+    phones:$("#phones").val(),coin:$('#coin').val(),config:$('#config').val()},function(data){
+    alert('ok')})
+}
 //
 // }
 // function ss(a,b,c){

@@ -55,7 +55,11 @@ urlpatterns = [
     re_path('batchExecution',case().batchExecution),
     re_path('sendMsg',wechatview.sendMsg),
     re_path('getUserInfo',xcx_login().getUserInfo),
-    re_path('uploadImage',uploadimg.uploadImage)
+    re_path('uploadImage',uploadimg.uploadImage),
+    re_path('update',indexviews.update),
+    re_path('commit',indexviews.commit),
+    re_path('hlshengji',indexviews.hlshengji),
+re_path('gaihuahua',indexviews.gaihuahua)
 
 
 ]

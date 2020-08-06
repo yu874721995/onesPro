@@ -14,15 +14,14 @@ class runner_case():
     def run(self,case_name):
         # report_path = os.path.abspath('.')+'/one/Test_report/'
         # report_path = os.path.dirname(os.path.abspath('.')) + '/one/Test_report/'
-        report_path = os.path.abspath('.') + '/one/Test_report/'
+        report_path = os.path.abspath('.') + '/oneGo/Test_report/'
         report_time = time.strftime('%y-%m-%d-%H-%M-%S',time.localtime(time.time()))
         report_name = report_path+str(report_time)+"-Test_report.html"
         fp = open(report_name,'wb')
         testsuite = unittest.TestSuite()
-        discover = unittest.defaultTestLoader.discover('case_model',pattern='test_*.py',top_level_dir='one')
+        discover = unittest.defaultTestLoader.discover('case_model',pattern='test_*.py',top_level_dir='oneGo')
         for testsuites in discover:
             for i in testsuites:
-                print('套件里面加1')
                 testsuite.addTest(i)
         # path = os.path.dirname(os.path.abspath('.')) + 'twostr/one/case_model'
         # path = 'E:\\twostr/one/case_model'

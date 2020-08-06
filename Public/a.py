@@ -23,8 +23,9 @@ class read_yaml():
         # for i in list(text):
         #     item.append(text[i])
         item = []
-        with open(os.path.abspath('.') + '/Public/case_date.json', 'r') as f:
+        with open(os.path.abspath('.') + '/Public/case_date.yaml', 'r') as f:
             load_dict = json.load(f)
+            print(1231232132131231231231,load_dict)
             f.close()
         self.load_dict = load_dict
         print(self.load_dict)

@@ -25,7 +25,7 @@ DEFAULT_CHARSET = 'utf-8'
 LANGUAGE_CODE='zh-CN'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -139,7 +139,7 @@ DATABASES = {
         'NAME': 'yu',        #数据库名字
         'USER': 'root',          #账号
         'PASSWORD': '123456',      #密码
-        'HOST': '127.0.0.1',    #IP
+        'HOST': '47.93.244.11',    #IP
         'PORT': '3306',
         'OPTIONS': { 'init_command': 'SET default_storage_engine=INNODB,character_set_connection=UTF8MB4,collation_connection=utf8mb4_unicode_ci;' }
     }

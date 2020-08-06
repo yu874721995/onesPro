@@ -11,6 +11,100 @@ import datetime
 
 user_list = []
 
+def update(request):
+    return render(request,'update_hl_time.html')
+def commit(request):
+    phone = request.POST.get('phone',None)
+    times = str(time.time()).split('.')[0]+'000'
+    import pymysql
+    try:
+        conn = pymysql.connect(
+            host='120.79.154.96',
+        user ='root', password ='Ysh@#2020',
+        database ='date',
+        charset ='utf8')
+        cursor = conn.cursor()
+        sql = "update js_match_maker_audit set audit_time=%s where uid=(select id from js_user where phone =%s and status=1);"
+        cursor.execute(sql, [times,phone])
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return HttpResponse(json.dumps({'status': 1,
+                                        'msg': 'ok'}))
+    except Exception as e:
+        return HttpResponse(json.dumps({'status': 500,
+                                        'msg':'error'}))
+
+def hlshengji(request):
+    phone = request.POST.get('phone', None)
+    times = str(time.time()).split('.')[0] + '000'
+    import pymysql
+    try:
+        conn = pymysql.connect(
+            host='120.79.154.96',
+            user='root', password='Ysh@#2020',
+            database='date',
+            charset='utf8')
+        cursor = conn.cursor()
+        sql = "update js_match_maker_audit set up_time=%s where uid=(select id from js_user where phone =%s and status=1);"
+        print(times,phone)
+        print(sql)
+        cursor.execute(sql, [times, phone])
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return HttpResponse(json.dumps({'status': 1,
+                                        'msg': 'okokokok'}))
+    except Exception as e:
+        return HttpResponse(json.dumps({'status': 500,
+                                        'msg': 'error'}))
+def gaihuahua(request):
+    phone = request.POST.get('phones',None)
+    coin = request.POST.get('coin',None)
+    config = request.POST.get('config',None)
+    print(phone,coin,config)
+    import pymysql
+    if config == 'test':
+        try:
+            conn = pymysql.connect(
+                host='120.79.154.96',
+                user='root', password='Ysh@#2020',
+                database='date',
+                charset='utf8')
+            cursor = conn.cursor()
+            sql = "update js_user set coin=%s where phone=%s and status=1;"
+            cursor.execute(sql, [coin,phone])
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return HttpResponse(json.dumps({'status': 1,
+                                            'msg': 'okokokok'}))
+        except Exception as e:
+            return HttpResponse(json.dumps({'status': 500,
+                                            'msg': 'error'}))
+    elif config == 'dev':
+        try:
+            conn = pymysql.connect(
+                host='121.201.57.208',
+                user='root', password='Jskj@1234',
+                database='date',
+                charset='utf8')
+            cursor = conn.cursor()
+            sql = "update js_user set coin=%s where phone=%s and status=1;"
+            cursor.execute(sql, [coin,phone])
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return HttpResponse(json.dumps({'status': 1,
+                                            'msg': 'okokokok'}))
+        except Exception as e:
+            return HttpResponse(json.dumps({'status': 500,
+                                            'msg': 'error'}))
+
+
+
+
+
 def login(request):
     return render(request,'login.html')
 

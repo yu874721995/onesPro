@@ -15,6 +15,7 @@ from Public.JsonData import DateEncoder
 from django.forms.models import model_to_dict
 from ruamel import yaml
 from Public.runner import runner_case
+from multiprocessing import Process
 
 
 
@@ -160,6 +161,10 @@ class caseChoice():
         begin = (page - 1) * limit + 1
         end = page * limit
         return (begin,end)
+    def fuc(self,case_name):
+        print(os.getpid())
+        report_name = runner_case().run(case_name=case_name)
+        return report_name
 
     #执行用例
     def batchExecution(self,request):
@@ -170,46 +175,54 @@ class caseChoice():
         date = self.query_case(caseId)
         # path = os.path.dirname(os.path.abspath('.')) + '/Public/case_date.yaml'
 
-        # path = os.path.abspath('.') + '/Public/case_date.yaml'
-        path = os.path.dirname(os.path.abspath('.')) + '/Public/case_date.json'
+        path = os.path.abspath('.') + '/Public/case_date.yaml'
+        # path = os.path.dirname(os.path.abspath('.')) + '/Public/case_date.json'
         datas = {}
         case_name = []
         num = 0
-        isOk = False
         for i in date:
             i = eval(repr(i).replace('\\',''))
             datas[num] = i
             case_name.append(i['caseName'])
             num += 1
         try:
-            # with open(path,'w',encoding='utf-8') as f:
-            #     yaml.dump(datas,f,Dumper=yaml.RoundTripDumper)
-            #     isOk = True
-            #     print('asdsadsadasdada')
-
+            with open(path,'w',encoding='utf-8') as f:
+                yaml.dump(datas,f,Dumper=yaml.RoundTripDumper)
             # result = yaml.safe_dump(datas, encoding='utf-8', allow_unicode=True, default_flow_style=False)
             # open(path,'wb').write(result)
 
-            with open(path,'w') as f:
-                json.dump(datas,f)
-                f.close()
+            # with open(path,'w') as f:
+            #     json.dump(datas,f)
+            #     f.close()
             isOk = True
         except Exception as e:
+            print('error-----------------------------:',e)
             return HttpResponse(json.dumps({'status':500,'msg': '~出错了，请重试'}))
         # self.query_case(caseId)
         # 执行测试
+        # p = Process(target=self.fuc, args=case_name)
         report_name = ''
-        if isOk == True:
+        try:
             report_name = runner_case().run(case_name=case_name)
+            # p.start()
+            print(2321321321321321321321)
+
+        except Exception as e:
+            print(1111111111111111111,e)
         dic = {
             'report_name':report_name,'becuxe_id':str(caseId),'type':1
         }
         try:
             models.Case_report.objects.create(**dic)
         except Exception as e:
-            print(e)
+            print(23213213123123213213213213,e)
             return HttpResponse(json.dumps({'status':500,'msg': '出错了，请重试'}))
         return HttpResponse(json.dumps({'status': 1, 'msg': '操作成功'}))
+
+
+
+
+
 
 
     #获取需要执行的用例数据
