@@ -1,72 +1,30 @@
 0:
   case_id: 1
   status: '1'
-  caseName: "\u6536\u5230"
-  host: http://127.0.0.1:8001/Loginup
+  caseName: "\u9080\u8BF7\u8BE6\u60C5"
+  host: http://api.51dengta.net/user/link/detail
   method: '2'
-  case_body:
-    userName: wenna
-    password: '123456'
+  case_body: {}
   case_header: {}
-  case_assert:
-    'sd ': 'sad '
+  case_assert: {}
 1:
   case_id: 2
   status: '1'
-  caseName: "\u6536\u5230"
-  host: http://127.0.0.1:8001/Loginup
+  caseName: "\u9080\u8BF7\u8BE6\u60C5"
+  host: http://api.51dengta.net/user/link/detail
   method: '2'
-  case_body:
-    userName: wenna
-    password: '123456'
+  case_body: {}
   case_header: {}
-  case_assert:
-    121sd: sadsadd
+  case_assert: {}
 2:
   case_id: 3
   status: '1'
-  caseName: "\u6536\u5230"
-  host: http://127.0.0.1:8001/Loginup
+  caseName: "\u9080\u8BF7\u8BE6\u60C5"
+  host: http://api.51dengta.net/user/link/detail
   method: '2'
   case_body:
-    userName: wenna
-    password: '123456'
+    access_token: eyJhbGciOiJITUFDU0hBMjU2IiwiaXNzIjoiRWFzeVN3b29sZSIsImV4cCI6MTYwNTQyNTUwNCwic3ViIjpudWxsLCJuYmYiOjE1OTc2NDk1MDQsImF1ZCI6bnVsbCwiaWF0IjoxNTk3NjQ5NTA0LCJqdGkiOiJzUlVMUFFURlpWIiwic2lnbmF0dXJlIjoiYjE2MmU4ZWMxZDgyMGE3ZTgxMGQ5Mzg4ZjFiODhjYzJmMTRmYjMxMTQ4MTkwODk5NjQ0NGNkZDgwZjM4ZjNjZiIsInN0YXR1cyI6MSwiZGF0YSI6ODgwMTIwMDcxOH0%3D
+    type: '1'
   case_header: {}
   case_assert:
-    asdsad: asdsadas
-3:
-  case_id: 4
-  status: '1'
-  caseName: "\u6536\u5230"
-  host: http://127.0.0.1:8001/Loginup
-  method: '2'
-  case_body:
-    userName: wenna
-    password: '123456'
-  case_header: {}
-  case_assert:
-    sadsad: sadsadsadsa
-4:
-  case_id: 5
-  status: '1'
-  caseName: "\u6536\u5230"
-  host: http://127.0.0.1:8001/Loginup
-  method: '2'
-  case_body:
-    userName: wenna
-    password: '123456'
-  case_header: {}
-  case_assert:
-    asdsad: asdsadsa
-5:
-  case_id: 6
-  status: '1'
-  caseName: "\u6536\u5230"
-  host: http://127.0.0.1:8001/Loginup
-  method: '2'
-  case_body:
-    userName: wenna
-    password: '123456'
-  case_header: {}
-  case_assert:
-    sadsad: asdsadasd
+    a: a

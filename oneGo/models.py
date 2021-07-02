@@ -57,7 +57,7 @@ class user_TestCase_body(models.Model):
     id = models.AutoField(primary_key=True, blank=False)
     status = models.CharField(max_length=20, default=1)
     key = models.CharField(max_length=200, blank=False)
-    value = models.CharField(max_length=200, blank=False)
+    value = models.TextField(max_length=2000, blank=False)
     host_id = models.ForeignKey('user_TestCase_host', on_delete=models.CASCADE)
     type = models.CharField(max_length=10,default=1)
 

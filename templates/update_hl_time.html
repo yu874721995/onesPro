@@ -24,10 +24,33 @@
     <a href='javascript:void(0)' onclick="commits()" style="height:50px"><button type="button" style="cursor:pointer;height:50px" id="commits">直接提升红娘等级</button></a>
 </div>
 <div>
+    <span>修改用户花花:</span>
     <input style="height:50px" id="phones" type="text" placeholder="请输入红娘手机号码">
-    <input style="height:50px" id="coin" type="text" placeholder="请输入花花数">
-    <input style="height:50px;wight:200px" id="config" type="text" placeholder="请输入环境（test/dev）">
-    <a href='javascript:void(0)' onclick="gaihuahua()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="gaihuahua">提交</button></a></div>
+    <input style="height:50px;width:200px" id="coin" type="text" placeholder="请输入花花数（预发布不需要填）">
+    <input style="height:50px;width:300px" id="config" type="text" placeholder="请输入环境（test扣1/dev扣2/uat扣3/海外开发扣5）">
+    <a href='javascript:void(0)' onclick="gaihuahua()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="gaihuahua">提交</button></a>
+    <span>预发布只能充99999</span>
+</div>
+<div>
+    <span>设置主播为经纪人等:</span>
+    <input style="height:50px" id="phoness" type="text" placeholder="请输入红娘手机号码">
+    <input style="height:50px" id="level" type="text" placeholder="主播1-经纪人2-会长3">
+    <input style="height:50px;width:300px" id="configs" type="text" placeholder="请输入环境（test扣1/dev扣2-不支持预发布）">
+    <a href='javascript:void(0)' onclick="gaidengji()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="gaidengji">提交</button></a>
+</div>
+<div>
+    <span>设置用户为主播:</span>
+    <input style="height:50px" id="phonesss" type="text" placeholder="请输入手机号码">
+    <input style="height:50px;width:300px" id="configss" type="text" placeholder="请输入环境（test扣1/dev扣2/预发布扣3）">
+    <a href='javascript:void(0)' onclick="zhuboshenhe()" style="height:50px;width:50px"><button type="button" style="cursor:pointer;height:50px" id="zhuboshenhe">提交</button></a>
+</div>
+<div>
+    <span>设置用户贵族等级:</span>
+    <input style="height:50px" id="guizuphone" type="text" placeholder="请输入手机号码">
+    <input style="height:50px" id="guizulevel" type="text" placeholder="骑士1-子爵2-伯爵3......类推">
+    <input style="height:50px;width:300px" id="guizuconfig" type="text" placeholder="请输入环境（test扣1/dev扣2/预发布扣3）">
+    <a href='javascript:void(0)' onclick="guizu()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="guizu">提交</button></a>
+</div>
 </body>
 
 </html>

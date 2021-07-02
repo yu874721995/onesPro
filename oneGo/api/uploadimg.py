@@ -85,7 +85,7 @@ def pGetFileExtension(file):
         ext = filetype.guess_extension(rawData)
         return ext
     except Exception as e:
-        # todo log
+
         return None
 
 # 计算文件的md5

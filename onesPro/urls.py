@@ -24,51 +24,52 @@ from oneGo.api.CaseChoice import caseChoice as case
 from oneGo.api import wechat as wechatview
 from xcx.api.loginAndRegite import login_and_reg as xcx_login
 from oneGo.api import uploadimg
+from oneGo.api import tapd
 
 urlpatterns = [
-    #re_path('',oneviews.login),
-    re_path(r'^$',indexviews.login),
-    re_path('session_test',users().session_test),
-    re_path('index',indexviews.index),
-    re_path('login',indexviews.login),
+    # re_path('',oneviews.login),
+    re_path(r'^$', indexviews.login),
+    re_path('session_test', users().session_test),
+    re_path('index', indexviews.index),
+    re_path('login', indexviews.login),
     re_path('diary_index', indexviews.diary_index),
     re_path('diary_login', indexviews.diary_login),
-    re_path('Loginup',login().Loginup),
-    re_path('goRegister',indexviews.goRegister),
-    re_path('register',indexviews.register),
-    re_path('reqJson',req().reqJson),
-    re_path('username',users().getuser),
+    re_path('Loginup', login().Loginup),
+    re_path('goRegister', indexviews.goRegister),
+    re_path('register', indexviews.register),
+    re_path('reqJson', req().reqJson),
+    re_path('username', users().getuser),
     re_path('UserHistory', users().userHistory),
-    re_path(r'^accounts/login/$',indexviews.login),
-    re_path('SaveTestCase',SaveCase().saveTestCase),
-    re_path('deleteHistory',indexviews.deleteHistory),
-    re_path('userList',users().userList),
-    re_path('updateUserStatus',user().updateUserStatus),
-    re_path('addUser',users().add_User),
-    re_path('user_delete',user().user_delete),
-    re_path('userDelList',users().userDelList),
-    re_path('recoverCustomer',users().recoverCustomer),
-    re_path('addChoice',case().addChoice),
-    re_path('queryForProduct',case().queryForProduct),
-    re_path('queryForOur',case().queryForOur),
-    re_path('caseList',case().caseList),
-    re_path('batchExecution',case().batchExecution),
-    re_path('sendMsg',wechatview.sendMsg),
-    re_path('getUserInfo',xcx_login().getUserInfo),
-    re_path('uploadImage',uploadimg.uploadImage),
-    re_path('update',indexviews.update),
-    re_path('commit',indexviews.commit),
-    re_path('hlshengji',indexviews.hlshengji),
-re_path('gaihuahua',indexviews.gaihuahua)
+    re_path(r'^accounts/login/$', indexviews.login),
+    re_path('SaveTestCase', SaveCase().saveTestCase),
+    re_path('deleteHistory', indexviews.deleteHistory),
+    re_path('userList', users().userList),
+    re_path('updateUserStatus', user().updateUserStatus),
+    re_path('addUser', users().add_User),
+    re_path('user_delete', user().user_delete),
+    re_path('userDelList', users().userDelList),
+    re_path('recoverCustomer', users().recoverCustomer),
+    re_path('addChoice', case().addChoice),
+    re_path('queryForProduct', case().queryForProduct),
+    re_path('queryForOur', case().queryForOur),
+    re_path('caseList', case().caseList),
+    re_path('batchExecution', case().batchExecution),
+    re_path('sendMsg', wechatview.sendMsg),
+    re_path('getUserInfo', xcx_login().getUserInfo),
+    re_path('uploadImage', uploadimg.uploadImage),
+    re_path('update', indexviews.update),
+    re_path('commit', indexviews.commit),
+    re_path('hlshengji', indexviews.hlshengji),
+    re_path('gaihuahua', indexviews.gaihuahua),
+    re_path('gaidengji', indexviews.gaidengji),
+    re_path('sign', indexviews.sign),
+    re_path('zhuboshenhe', indexviews.zhuboshenhe),
+    re_path('guizu', indexviews.guizu),
+    re_path('tapd',tapd.main),
+    re_path('look',indexviews.look),
 
 
 ]
-
-
-
-
-
-
 
 # from apscheduler.schedulers.background import BackgroundScheduler
 # from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job

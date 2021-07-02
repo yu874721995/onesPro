@@ -56,8 +56,23 @@ gaihuahua
 function gaihuahua(){
     $.post(hostUrl+'/gaihuahua',{
     phones:$("#phones").val(),coin:$('#coin').val(),config:$('#config').val()},function(data){
-    alert('ok')})
+   alert(JSON.parse(data).msg)})
 }
+function gaidengji(){
+    $.post(hostUrl+'/gaidengji',{
+    phone:$("#phoness").val(),level:$('#level').val(),config:$('#configs').val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+function zhuboshenhe(){
+    $.post(hostUrl+'/zhuboshenhe',{
+    phone:$("#phonesss").val(),config:$('#configss').val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+function guizu(){
+    $.post(hostUrl+'/guizu',{
+    phone:$("#guizuphone").val(),level:$('#guizulevel').val(),config:$('#guizuconfig').val()},function(data){
+   alert(JSON.parse(data).msg)})
+   }
 //
 // }
 // function ss(a,b,c){
