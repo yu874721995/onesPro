@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 
 IMAGE_SIZE_LIMIT = 10*1024*1024
-WEB_HOST_NAME = 'https://yushifamily.club'
+WEB_HOST_NAME = 'http://121.201.57.207:9001'
 WEB_IMAGE_SERVER_PATH = '/static/images/'
 IMAGE_SAVING_PATH = os.path.abspath(os.getcwd())+'/static/images/'
 
@@ -136,9 +136,9 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yu',        #数据库名字
+        'NAME': 'django',        #数据库名字
         'USER': 'root',          #账号
-        'PASSWORD': '123456',      #密码
+        'PASSWORD': 'Dengta@123',      #密码
         # 'HOST': '47.93.244.11',    #IP
         'HOST': '127.0.0.1',    #IP
         'PORT': '3306',

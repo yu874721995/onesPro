@@ -18,8 +18,6 @@ from Public.runner import runner_case
 from multiprocessing import Process
 
 
-
-
 class caseChoice():
 
     #添加产品或添加模块

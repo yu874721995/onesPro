@@ -283,15 +283,15 @@ def main(request):
     start_time = request.POST.get('start',None)
     end_time = request.POST.get('end',None)
     if start_time == '' or end_time=='':
-        start_time = '2020-12-18 00:00:00'
-        end_time = '2021-01-15 00:00:00'
+        start_time = '2021-07-01 00:00:00'
+        end_time = '2021-08-01 00:00:00'
     cookie = '1997160845_35715961_/bugtrace/bugreports/my_view_remember_view=1135715961001002597; is_filter_close=false; tui_filter_fields=%5B%22title%22%2C%22iteration_id%22%2C%22priority%22%2C%22status%22%2C%22current_owner%22%5D; bugtrace_reports_myview_35715961_filter_fields=%5B%22version_report%22%2C%22module%22%5D; tapdsession=16105058576043263be9301301ca3042b5e6419b0dc3d62e224130334b22c4d7024aa0c0f5; __root_domain_v=.tapd.cn; _qddaz=QD.479smn.3d2dr4.kjutm8ch; t_u=608927bb4a83e2442d865362931124f66bc36b51b7529d1ea17f0ecf15421a0340a0492f9277259bc4142364429eba28157e49be73731c6c1aa3b507453a52fb72043c06bcf48e5f%7C1; t_cloud_login=qc04%40jingshukj.com.cn; _t_uid=1997160845; _t_crop=38902580; tapd_div=101_4; 35715961bug_create_template=1135715961001000063; 61770148bug_create_template=0; c_link=0; _wt=eyJ1aWQiOiIxOTk3MTYwODQ1IiwiY29tcGFueV9pZCI6IjM4OTAyNTgwIiwiZXhwIjoxNjEwNjE3MjQ1fQ%3D%3D.87b26059e084acfc4cecb4a5f43b52664401e9964dc25956189ee87003323a72; dsc-token=d1sjNclCfGbg3qpL'
     yanzhong = split_list_by_n(get_yanzhong(cookie,start_time,end_time),7)
     huigui = split_list_by_n(get_huigui(cookie,start_time,end_time), 6)
     yanzhongs = []
     huiguis = []
     nianling = {}
-    name = ['魏文彬','石文水','朱宇航','吴斯诺','邱杨琦','李胜锋','詹炼钢','桓成','肖旭辉','魏宏昌','李锡会1','李达文','张春窑']
+    name = ['詹炼钢','肖旭辉','张春窑','胡道荣']
     for i in yanzhong:
         if i[0] in name:
             yanzhongs.append(i)
@@ -310,16 +310,32 @@ def main(request):
             if i == x[0]:
                 nianling[i].append(x)
     datas = []
+    print(nianling)
     for i in nianling:
-        print(i)
-        print(nianling[i])
+        zongshu = 0
+        yiban_num = 0
+        yanzhong_zhanbi_num = 0
+        dayu2tian_zhanbi_num = 0
+        tongguolv = 0
         data = {}
-        zongshu = nianling[i][1][1]
-        yiban_num = nianling[i][1][4]
-        yanzhong_zhanbi_num = int(int(nianling[i][1][2]) + int(nianling[i][1][3]))
-        dayu2tian_zhanbi_num = int(int(nianling[i][0][3])+int(nianling[i][0][4])+int(nianling[i][0][5]))
-        tongguolv = nianling[i][2][5]
-
+        if len(nianling[i]) == 1:
+            dayu2tian_zhanbi_num = int(int(nianling[i][0][3]) + int(nianling[i][0][4]) + int(nianling[i][0][5]))
+            zongshu = 0
+            yiban_num = 0
+            yanzhong_zhanbi_num = 0
+            tongguolv = 0
+        elif len(nianling[i]) == 2:
+            zongshu = nianling[i][1][1]
+            yiban_num = nianling[i][1][4]
+            yanzhong_zhanbi_num = int(int(nianling[i][1][2]) + int(nianling[i][1][3]))
+            dayu2tian_zhanbi_num = int(int(nianling[i][0][3]) + int(nianling[i][0][4]) + int(nianling[i][0][5]))
+            tongguolv = 0
+        elif len(nianling[i]) == 3:
+            zongshu = nianling[i][1][1]
+            yiban_num = nianling[i][1][4]
+            yanzhong_zhanbi_num = int(int(nianling[i][1][2]) + int(nianling[i][1][3]))
+            dayu2tian_zhanbi_num = int(int(nianling[i][0][3]) + int(nianling[i][0][4]) + int(nianling[i][0][5]))
+            tongguolv = nianling[i][2][5]
         data['name'] = i
         data['zongshu'] = zongshu
         data['yiban'] = yiban_num
