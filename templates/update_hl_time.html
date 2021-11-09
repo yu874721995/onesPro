@@ -1,56 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>修改红娘考核时间</title>
+    <title>测试工具</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="stylesheet" href="/static/css/font.css" type="text/css"/>
-    <link rel="stylesheet" href="/static/css/login.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/login.css" type="text/css" />
     <link rel="stylesheet" href="/static/css/xadmin.css" type="text/css" />
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/lib/layui/layui.js" charset="utf-8"></script>
     <script src="/static/jss/config.js"></script>
     <script src="/static/jss/index.js"></script>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script src="/static/lib/layui/layui.js"></script>
+    <style>
+        .button-style {
+            height: 30px;
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
 </head>
+
 <body>
-<div>
-<input style="height:50px" id="phone" type="text" placeholder="请输入红娘手机号码">
-    <a href='javascript:void(0)' onclick="commit()" style="height:50px"><button type="button" style="cursor:pointer;height:50px" id="commit">提交修改考核时间</button></a>
-    <a href='javascript:void(0)' onclick="commits()" style="height:50px"><button type="button" style="cursor:pointer;height:50px" id="commits">直接提升红娘等级</button></a>
-</div>
-<div>
-    <span>修改用户花花:</span>
-    <input style="height:50px" id="phones" type="text" placeholder="请输入红娘手机号码">
-    <input style="height:50px;width:200px" id="coin" type="text" placeholder="请输入花花数（预发布不需要填）">
-    <input style="height:50px;width:300px" id="config" type="text" placeholder="请输入环境（test扣1/dev扣2/uat扣3/海外开发扣5）">
-    <a href='javascript:void(0)' onclick="gaihuahua()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="gaihuahua">提交</button></a>
-    <span>预发布只能充99999</span>
-</div>
-<div>
-    <span>设置主播为经纪人等:</span>
-    <input style="height:50px" id="phoness" type="text" placeholder="请输入红娘手机号码">
-    <input style="height:50px" id="level" type="text" placeholder="主播1-经纪人2-会长3">
-    <input style="height:50px;width:300px" id="configs" type="text" placeholder="请输入环境（test扣1/dev扣2-不支持预发布）">
-    <a href='javascript:void(0)' onclick="gaidengji()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="gaidengji">提交</button></a>
-</div>
-<div>
-    <span>设置用户为主播:</span>
-    <input style="height:50px" id="phonesss" type="text" placeholder="请输入手机号码">
-    <input style="height:50px;width:300px" id="configss" type="text" placeholder="请输入环境（test扣1/dev扣2/预发布扣3）">
-    <a href='javascript:void(0)' onclick="zhuboshenhe()" style="height:50px;width:50px"><button type="button" style="cursor:pointer;height:50px" id="zhuboshenhe">提交</button></a>
-</div>
-<div>
-    <span>设置用户贵族等级:</span>
-    <input style="height:50px" id="guizuphone" type="text" placeholder="请输入手机号码">
-    <input style="height:50px" id="guizulevel" type="text" placeholder="骑士1-子爵2-伯爵3......类推">
-    <input style="height:50px;width:300px" id="guizuconfig" type="text" placeholder="请输入环境（test扣1/dev扣2/预发布扣3）">
-    <a href='javascript:void(0)' onclick="guizu()" style="height:50px;wight:50%"><button type="button" style="cursor:pointer;height:50px" id="guizu">提交</button></a>
-</div>
+    <form class="layui-form" action="">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this">查询用户id或手机号</li>
+                <li>批量注册用户</li>
+                <li>修改用户花花</li>
+                <li>批量发送消息/送礼物</li>
+                <li>收益计算器</li>
+                <li>开通会员</li>
+                <li>查询历史app下载二维码</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">用户</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="selectPhone" placeholder="请输入手机号码或用户id（精确查询）" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="selectConfig">
+                              <option value="4">纯净 test</option>
+                            <option value="5">纯净 dev</option>
+                            <option value="6">纯净 uat</option>
+                            <option value="1">等他 test</option>
+                            <option value="2">等他 dev</option>
+                            <option value="3">等他 uat</option>
+
+                          </select>
+                        </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="user_id_phone()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="user_id_phone" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">手机号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="auto_phone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性别</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="auto_sex">
+                              <option value="2">女</option>
+                            <option value="1">男</option>
+
+                          </select>
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">昵称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="auto_name" placeholder="请输入昵称（默认为随机昵称+数量）" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">数量</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="auto_number" placeholder="请输入注册数量（默认为1）" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block">
+                          <select name="city" lay-verify="required" id="auto_config" lay-filter="config" >
+                            <option value="4">纯净 test</option>
+                            <option value="5">纯净 dev</option>
+                            <option value="6">纯净 uat</option>
+                          </select>
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">所属代理商</label>
+                            <div class="layui-input-block">
+                          <select name="city" lay-verify="required" id="auto_agent">
+                              <option value="055220">等Ta自营</option>
+                          </select>
+                        </div>
+                        </div>
+                        <span style="color:red">上级人脉id为空时人脉为所属代理商，人脉与所属代理商不一致时为人脉所属的代理商</span>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">上级人脉id</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="auto_network" placeholder="请输入上级人脉id（默认等Ta自营）" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="auto_registration()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="auto_registration" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">手机号码</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="phones" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">花种</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="coin" placeholder="请输入花种" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="config">
+                              <option value="4">纯净 test</option>
+                            <option value="5">纯净 dev</option>
+                            <option value="6">纯净 uat</option>
+                            <option value="1">等他 test</option>
+                            <option value="2">等他 dev</option>
+                            <option value="3">等他 uat</option>
+
+                          </select>
+                        </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="flower_update()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="gaihuahua" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">发送者id</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="from_user" placeholder="请输入发送者id" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">接收者id</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="to_user" placeholder="请输入接收者id" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">操作</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="information_gifts_operate">
+                            <option value="1">发消息</option>
+                            <option value="2">送礼物</option>
+                          </select>
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">发送次数/赠送礼物价值</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="information_gifts_num" placeholder="请输入发送次数或赠送礼物价值(默认为1)" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="information_gifts_config">
+                              <option value="4">纯净 test</option>
+                            <option value="5">纯净 dev</option>
+                            <option value="6">纯净 uat</option>
+                          </select>
+                        </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="information_gifts()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="information_gifts" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">打赏者</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="rewarder" placeholder="请输入打赏者id" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">受赏者</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="recipient" placeholder="请输入受赏者id" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">花花</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="coin_money" placeholder="请输入打赏花花数" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="income_config">
+                            <option value="4">纯净 test</option>
+                            <option value="5">纯净 dev</option>
+                            <option value="6">纯净 uat</option>
+                          </select>
+                        </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="income_calculator()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="income_calculator" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">手机号码</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="vip_phone" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">会员套餐id</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="combo">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="vip_config">
+                            <option value="4">纯净 test</option>
+                            <option value="5">纯净 dev</option>
+                            <option value="6">纯净 uat</option>
+                          </select>
+                        </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="charge_vip()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="charge_vip" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="layui-tab-item">
+                    <div class="con layui-row">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">版本号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="version" placeholder="请输入版本号" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">项目</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="appPro">
+                            <option value="等Ta">等Ta</option>
+                            <option value="纯净版">纯净版</option>
+                            <option value="tatalive">tatalive</option>
+                          </select>
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">系统</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="appXt">
+                            <option value="Android">Android</option>
+                            <option value="Ios">Ios</option>
+                          </select>
+                        </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">环境</label>
+                            <div class="layui-input-block" >
+                          <select name="city" lay-verify="required" id="env">
+                            <option value="test">测试</option>
+                            <option value="uat">预发布</option>
+                            <option value="master">正式</option>
+                          </select>
+                        </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="checkApp()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="checkApp" class="layui-btn">提交</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--<div>-->
+    <!--<input style="height:30px" id="phone" type="text" placeholder="请输入红娘手机号码">-->
+    <!--    <a href='javascript:void(0)' onclick="commit()" style="height:30px"><button type="button" style="cursor:pointer;height:30px" id="commit">提交修改考核时间</button></a>-->
+    <!--    <a href='javascript:void(0)' onclick="commits()" style="height:30px"><button type="button" style="cursor:pointer;height:30px" id="commits">直接提升红娘等级</button></a>-->
+    <!--</div>-->
+
+
+    <!--<div>-->
+    <!--    <span>设置主播为经纪人等:</span>-->
+    <!--    <input style="height:30px " id="phoness " type="text " placeholder="请输入红娘手机号码 ">-->
+    <!--    <input style="height:30px " id="level " type="text " placeholder="主播1-经纪人2-会长3 ">-->
+    <!--    <input style="height:30px;width:300px " id="configs " type="text " placeholder="请输入环境（test扣1/dev扣2-不支持预发布） ">-->
+    <!--    <a href='javascript:void(0)' onclick="gaidengji() " style="height:30px;width:50% "><button type="button " style="cursor:pointer;height:30px " id="gaidengji ">提交</button></a>-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--    <span>设置用户为主播:</span>-->
+    <!--    <input style="height:30px " id="phonesss " type="text " placeholder="请输入手机号码 ">-->
+    <!--    <input style="height:30px;width:300px " id="configss " type="text " placeholder="请输入环境（test扣1/dev扣2/预发布扣3） ">-->
+    <!--    <a href='javascript:void(0)' onclick="zhuboshenhe() " style="height:30px;width:50px "><button type="button " style="cursor:pointer;height:30px " id="zhuboshenhe ">提交</button></a>-->
+    <!--</div>-->
+    <!--<div>-->
+    <!--    <span>设置用户贵族等级:</span>-->
+    <!--    <input style="height:30px " id="guizuphone " type="text " placeholder="请输入手机号码 ">-->
+    <!--    <input style="height:30px " id="guizulevel " type="text " placeholder="骑士1-子爵2-伯爵3......类推 ">-->
+    <!--    <input style="height:30px;width:300px " id="guizuconfig " type="text " placeholder="请输入环境（test扣1/dev扣2/预发布扣3） ">-->
+    <!--    <a href='javascript:void(0)' onclick="guizu() " style="height:30px;width:50% "><button type="button " style="cursor:pointer;height:30px " id="guizu ">提交</button></a>-->
+    <!--</div>-->
 </body>
+<script>
+<!--监控select onchange-->
+    layui.use(['form'], function() {
+                    var form=layui.form;
+				    form.on('select(config)', function(data){
+						    var val=data.value;
+						    get_agent(val);
+		  			 });
+ });
+</script>
 
 </html>

@@ -46,18 +46,133 @@ function commit(){
     phone:$("#phone").val(),time:$('#time').val()},function(data){
     alert('ok')})
 }
+
 function commits(){
     $.post(hostUrl+'/hlshengji',{
     phone:$("#phone").val(),time:$('#time').val()},function(data){
     alert('ok')})
 }
-gaihuahua
 
-function gaihuahua(){
-    $.post(hostUrl+'/gaihuahua',{
+function auto_registration(){
+    $.post(hostUrl+'/auto_registration',{
+    auto_phone:$("#auto_phone").val(),auto_sex:$('#auto_sex').val(),auto_name:$('#auto_name').val(),auto_number:$('#auto_number').val(),
+    auto_config:$('#auto_config').val(),auto_agent:$('#auto_agent').val(),auto_network:$('#auto_network').val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+
+function user_id_phone(){
+    $.post(hostUrl+'/user_id_phone',{
+    selectPhone:$("#selectPhone").val(),selectConfig:$('#selectConfig').val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+
+function flower_update(){
+    $.post(hostUrl+'/flower',{
     phones:$("#phones").val(),coin:$('#coin').val(),config:$('#config').val()},function(data){
    alert(JSON.parse(data).msg)})
 }
+
+$(function(){
+$.post(hostUrl+'/Getagent',{
+    config:$('#auto_config').val()},function(data){
+        var pro;
+        var _html = '<option value="">等Ta自营</option>'
+        var pro = JSON.parse(data).data;
+        for (var i = 0; i < pro.length; i++) {
+                _html += "<option value='"+pro[i].share_code+"'>"+pro[i].agent_name+"</option>"
+            }
+            $('#auto_agent').html(_html);
+            layui.use('form', function(){
+           var form = layui.form;//高版本建议把括号去掉，有的低版本，需要加()
+           form.render('select');})
+})});
+
+function get_agent(conf){
+    $.post(hostUrl+'/Getagent',{
+    config:conf},function(data){
+        var pro;
+        var config = $('#auto_config').val()
+        var _html = '<option value="">等Ta自营</option>'
+        var pro = JSON.parse(data).data;
+        for (var i = 0; i < pro.length; i++) {
+                _html += "<option value='"+pro[i].share_code+"'>"+pro[i].agent_name+"</option>"
+            }
+            $('#auto_agent').html(_html);
+            layui.use('form', function(){
+           var form = layui.form;//高版本建议把括号去掉，有的低版本，需要加()
+           form.render('select');})
+
+
+   })
+}
+
+function charge_vip(){
+    $.post(hostUrl+'/charge_vip',{
+    vip_phone:$("#vip_phone").val(),combo:$('#combo').val(),vip_config:$('#vip_config').val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+
+function information_gifts(){
+    $.post(hostUrl+'/information_gifts',{
+    from_user:$("#from_user").val(),to_user:$('#to_user').val(),information_gifts_operate:$('#information_gifts_operate').val(),
+    information_gifts_num:$("#information_gifts_num").val(),information_gifts_config:$("#information_gifts_config").val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+
+function income_calculator(){
+    $.post(hostUrl+'/income_calculator',{
+    rewarder:$("#rewarder").val(),recipient:$('#recipient').val(),coin_money:$('#coin_money').val(),
+    income_config:$("#income_config").val()},function(data){
+   alert(JSON.parse(data).msg)})
+}
+
+function checkApp(){
+$.post(hostUrl+'/checkApp',{
+    appPro:$("#appPro").val(),appXt:$('#appXt').val(),version:$('#version').val(),env:$("#env").val()},function(data){
+   layui.use('layer',function(){
+       if (JSON.parse(data).data == [] || JSON.parse(data).data ==null || JSON.parse(data).data == ''){
+    layer.msg('没有任何数据哦，检查一下提交的内容');
+    return}
+   var index = layer.open({
+   type:2
+        ,title: '查看app下载二维码'
+        ,content:'./static/checkApp.html'
+        ,skin:'layui-layer-lan'
+        ,area: ['1000px', '600px']
+        ,btnAlign: 'c'
+        ,maxmin: true
+        ,shadeClose:true
+         ,success: function(layero,index){
+          var body = parent.layer.getChildFrame('body', index);
+          var _html = '';
+          var json_data;
+          json_data = JSON.parse(data).data
+          console.log(json_data)
+          for (var i = 0; i < json_data.length; i++) {
+                    _html += '<div class="layui-col-xs6 layui-col-sm6 layui-col-md4">\n' +
+                    '<p>appid:'+json_data[i].id+'</p>\n' +
+                    '<p>项目名称:'+json_data[i].appPro+'</p>\n' +
+                    '<p>操作系统:'+json_data[i].appxt+'</p>\n' +
+                    '<p>app环境:'+json_data[i].app_env+'</p>\n' +
+                    '<p>上传时间:'+json_data[i].create_time+'</p>\n' +
+                    '<p>APP版本:'+json_data[i].appVersion+'</p>\n' +
+                    '<p>APP版本号:'+json_data[i].appbuildVersion+'</p>\n' +
+                    '<img src='+json_data[i].app_url+'  alt="上海鲜花港 - 郁金香" /></div>'
+
+                }
+                console.log(_html)
+           body.find('#big').append(_html);
+        }
+        ,end:function(data){
+            // window.location.reload()
+            }
+
+});
+
+   });
+   })};
+
+
 function gaidengji(){
     $.post(hostUrl+'/gaidengji',{
     phone:$("#phoness").val(),level:$('#level').val(),config:$('#configs').val()},function(data){

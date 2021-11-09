@@ -75,6 +75,19 @@ class Case_report(models.Model):
     becuxe_id = models.CharField(max_length=200, blank=False, default='')
     type = models.CharField(max_length=10, blank=False, default=1)
 
+class app_date(models.Model):
+    id = models.AutoField(primary_key=True, blank=False)
+    create_time = models.DateTimeField(default=timezone.now)
+    app_name = models.CharField(max_length=200, blank=False, default='')
+    app_build = models.CharField(max_length=200, blank=False, default='')
+    app_url = models.CharField(max_length=200, blank=False, default=1)
+    appVersion = models.CharField(max_length=200, blank=False, default=1)
+    appVersionNo = models.CharField(max_length=200, blank=False, default=1)
+    appbuildVersion = models.CharField(max_length=200, blank=False, default=1)
+    app_env = models.CharField(max_length=10, blank=False, default=1)
+    appPro = models.CharField(max_length=10, blank=False, default=1)
+    appxt = models.CharField(max_length=10, blank=False, default=1)
+
 class UploadImage(models.Model):
     class Meta:
         db_table = "upload_image"
@@ -122,4 +135,5 @@ class UploadImage(models.Model):
         s = "filename:" + str(self.filename) + " - " + "filetype:" + str(self.file_type) \
             + " - " + "filesize:" + str(self.file_size) + " - " + "filemd5:" + str(self.file_md5)
         return s
+
 

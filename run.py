@@ -5,4 +5,4 @@
 # @SoftWare  : onesPro
 
 import os
-os.system('python manage.py runserver 0.0.0.0:9001 --insecure')
+os.system('python manage.py runserver 0.0.0.0:9001')

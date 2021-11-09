@@ -53,36 +53,39 @@ urlpatterns = [
     re_path('queryForProduct', case().queryForProduct),
     re_path('queryForOur', case().queryForOur),
     re_path('caseList', case().caseList),
+    re_path('shenheList', case().shenheList),
+    re_path('zhenrenList', case().zhenrenlist),
+    re_path('removezhenren', case().removezhenren),
+    re_path('zhaohu',case().zhaohu),
+    re_path('shijishenhe',case().shijishenhe),
     re_path('batchExecution', case().batchExecution),
-    re_path('sendMsg', wechatview.sendMsg),
+    # re_path('sendMsg', wechatview.sendMsg),
     re_path('getUserInfo', xcx_login().getUserInfo),
     re_path('uploadImage', uploadimg.uploadImage),
     re_path('update', indexviews.update),
     re_path('commit', indexviews.commit),
     re_path('hlshengji', indexviews.hlshengji),
-    re_path('gaihuahua', indexviews.gaihuahua),
+    re_path('user_id_phone', indexviews.user_id_phone),
+    re_path('charge_vip', indexviews.charge_vip),
+    re_path('flower', indexviews.flower_update),
     re_path('gaidengji', indexviews.gaidengji),
     re_path('sign', indexviews.sign),
     re_path('zhuboshenhe', indexviews.zhuboshenhe),
     re_path('guizu', indexviews.guizu),
     re_path('tapd',tapd.main),
     re_path('look',indexviews.look),
+    re_path('checkApp',indexviews.checkApp),
+    re_path('information_gifts',indexviews.information_gifts),
+    re_path('Project',tapd.get_project),
+    re_path('auto_registration',indexviews.auto_registration),
+    re_path('income_calculator',indexviews.income_calculator),
+    re_path('auth_msg',indexviews.auth_msg),
+    re_path('Getagent',indexviews.get_agent),
+    re_path('shenhe',indexviews.returnshenhe),
+    re_path('zhenren',indexviews.zhenren),
+    # re_path('get_houtai_cookie',indexviews.get_houtai_cookie),
+
+
 
 
 ]
-
-# from apscheduler.schedulers.background import BackgroundScheduler
-# from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job
-# from oneGo.siteathome import task
-#
-# sched = BackgroundScheduler()
-# sched.add_jobstore(DjangoJobStore(),'default')
-#
-# @register_job(sched,'cron',second='10')
-# def my_task():
-#     task.deletesession()
-# try:
-#     register_events(sched)
-#     sched.start()
-# except Exception as e:
-#     sched.shutdown()

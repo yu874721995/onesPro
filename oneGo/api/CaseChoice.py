@@ -8,6 +8,9 @@
 @File    : CaseChoice.py
 @Software: PyCharm
 '''
+import requests
+import datetime
+from django.conf import settings
 from django.http import HttpResponse
 from oneGo import models
 import json,os,time
@@ -150,6 +153,218 @@ class caseChoice():
 
         return HttpResponse(json.dumps({'code':0,'count':count,'data':data,'msg':'操作成功','status':1},cls=DateEncoder))
 
+    def zhaohu(self,request):
+        id = request.POST.get('id',None)
+        import requests
+        from django.shortcuts import render
+        r = requests.Session()
+        url = 'https://manager.dengtayiduiyi.com/'
+        # url = 'https://test-manager.dengtayiduiyi.com/'
+        r.headers = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                     'cookie': settings.SHENHE_COOKIE,
+                     'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
+                     'x-requested-with': 'XMLHttpRequest'
+                     }
+        zhaohu = r.get(url+'/admin.php/app/greet/detail.html?id={}&hisi_iframe=yes'.format(id)).text
+        return HttpResponse(json.dumps({'data':zhaohu,'msg':'操作成功','status':1},cls=DateEncoder))
+
+    def shenheList(self,request):
+        # token = request.GET.get('token',None)
+        # if token == None:
+        #     return HttpResponse(json.dumps({'status':100,'msg': '非法用户'}))
+        r = requests.Session()
+        url = 'https://manager.dengtayiduiyi.com/'
+        # url = 'https://test-manager.dengtayiduiyi.com/'
+        r.headers = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                     'cookie': settings.SHENHE_COOKIE,
+                     'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
+                     'x-requested-with': 'XMLHttpRequest'
+                     }
+        touxiang_shenhe = r.post(url+'/admin.php/app/user/avataraudit.html?page=1&limit=10', data={
+            'status': 1
+        }).json()['data']
+        dongtaishenhe_shenhe = r.post(url+'/admin.php/app/content_audit/moments.html', data={
+            'status': 1
+        }).json()['data']
+        xiangce_shenhe = r.post(url+'/admin.php/app/photo/audit.html', data={
+            'status': 2
+        }).json()['data']
+        zhenren_renzheng = r.post(url+'/admin.php/app/content_audit/userrealauth.html',data={
+            'datetime_start':'2021-11-02 10:00:00',
+            'datetime_end':'2021-11-02 10:19:06'
+        }).json()['data']  # 真人认证
+        biaoqian_shenhe = r.post(url+'/admin.php/app/user/checktag.html', data={
+            'pass_status': 1
+        }).json()['data']  # 标签
+        zhaohu_shenhe = r.post(url+'/admin.php/app/greet/index.html?page=1&limit=10&field=1&name=&status=-1&datetime_start=&datetime_end=&agent_user_id=0').json()['data']
+        data = []
+        querys = []
+        if len(touxiang_shenhe) == 0 and len(dongtaishenhe_shenhe) == 0 and len(xiangce_shenhe) == 0 and len(
+                zhenren_renzheng) == 0 and len(biaoqian_shenhe) == 0 and len(zhaohu_shenhe) ==0:
+            return HttpResponse(json.dumps({'code':0,'count':0,'data':data,'msg':'操作成功','status':1},cls=DateEncoder))
+        for i in touxiang_shenhe:
+            query = {}
+            query['data'] = i
+            query['type'] = '头像'
+            querys.append(query)
+        for i in dongtaishenhe_shenhe:
+            query = {}
+            query['data'] = i
+            query['type'] = '动态'
+            querys.append(query)
+        for i in xiangce_shenhe:
+            query = {}
+            query['data'] = i
+            query['type'] = '相册'
+            querys.append(query)
+        for i in zhenren_renzheng:
+            query = {}
+            query['data'] = i
+            query['type'] = '真人'
+            querys.append(query)
+        for i in biaoqian_shenhe:
+            query = {}
+            query['data'] = i
+            query['type'] = '标签'
+            querys.append(query)
+        for i in zhaohu_shenhe:
+            query = {}
+            query['data'] = i
+            query['type'] = '招呼'
+            querys.append(query)
+        for i in querys:
+            print(i)
+        #处理用例数据
+        # num = 0
+        # for i in touxiang_shenhe:
+        #     case_body = {}
+        #     case_header = {}
+        #     case_asserts = {}
+        #     case_data = {}
+        #     case_data['case_id'] = i['id']
+        #     case_data['status'] = i['status']
+        #     case_data['caseName'] = i['caseName']
+        #     case_data['host'] = i['host']
+        #     case_data['create_date'] = i['create_date']
+        #     username = models.UserInfo.objects.filter(id=i['userid']).values()[0]['username']
+        #     case_data['username'] = username
+        #     case_data['method'] = i['method']
+        #     mk = models.casecp_mk.objects.filter(id=i['subjectionId']).values()[0]
+        #     mk_name = mk['name']
+        #     cp = models.casecp_mk.objects.filter(id=mk['subjection']).values()[0]['name']
+        #     case_data['subjection_cp'] = cp
+        #     case_data['subjection_mk'] = mk_name
+        #     case_data['create_date'] = i['create_date']
+        #
+        #     #在这里添加assert和body、header的内容
+        #     body = models.user_TestCase_body.objects.filter(host_id=i['id'],type=1).values()
+        #     for a in body:
+        #         case_body[a['key']] = a['value']
+        #     case_data['case_body'] = case_body
+        #
+        #     header = models.user_TestCase_body.objects.filter(host_id=i['id'],type=2).values()
+        #     for b in header:
+        #         case_header[b['key']] = b['value']
+        #     case_data['case_header'] = case_header
+        #
+        #     asserts = models.user_Case_Assert.objects.filter(host_id=i['id']).values()
+        #     asserts_count = models.user_Case_Assert.objects.filter(host_id=i['id']).count()
+        #     for c in asserts:
+        #         case_asserts[c['Assert_name']] = c['Assert_text']
+        #     case_asserts['count'] = asserts_count
+        #     case_data['case_assert'] = case_asserts
+        #
+        #
+        #     data.append(case_data)
+
+        return HttpResponse(json.dumps({'code':0,'count':0,'data':querys,'msg':'操作成功','status':1},cls=DateEncoder))
+
+    def removezhenren(self,request):
+        id = request.POST.get('id', None)
+        if id is None or id == '':
+            return HttpResponse(json.dumps({'msg':'参数错误','status':500}))
+        r = requests.Session()
+        url = 'https://manager.dengtayiduiyi.com/'
+        # url = 'https://test-manager.dengtayiduiyi.com/'
+        r.headers = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                     'cookie': settings.SHENHE_COOKIE,
+                     'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
+                     'x-requested-with': 'XMLHttpRequest'
+                     }
+        rz = r.post(url + '/admin.php/app/content_audit/userRealAuthDel.html',data={'id':id})
+        if rz.json()['msg'] == '操作成功':
+            return HttpResponse(json.dumps({'msg': '删除成功', 'status': 1}))
+        else:
+            return HttpResponse(json.dumps({'msg': rz.text, 'status': 500}))
+
+    def shijishenhe(self,request):
+        import requests
+        type = request.POST.get('type',None)
+        status = request.POST.get('status',None)
+        id = request.POST.get('id',None)
+        if type ==None or status ==None or id == None:
+            return HttpResponse(json.dumps({'status':500,'msg': '参数错误'}))
+        r = requests.Session()
+        url = 'https://manager.dengtayiduiyi.com/'
+        # url = 'https://test-manager.dengtayiduiyi.com/'
+        r.headers = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                     'cookie': settings.SHENHE_COOKIE,
+                     'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
+                     'x-requested-with': 'XMLHttpRequest'
+                     }
+        msg = ''
+        if type == '头像':
+            msg = r.post(url+'/admin.php/app/user/toaudit.html',data={
+                'id':id,
+                'status':status
+            }).json()['msg']
+        if type == '动态':
+            if status == '1' or status == 1:
+                msg = r.post(url+'/admin.php/app/content_audit/auditmoments.html?id={}'.format(id),data={
+                    'audit':status,
+                    'is_top':0
+                }).json()['msg']
+            elif status == '2' or status == 2:
+                msg = r.post(url + '/admin.php/app/content_audit/auditmoments.html', data={
+                    'id':id,
+                    'audit': status,
+                    'error_msg':'您的动态不符合规范',
+                    'is_top': 0
+                }).json()['msg']
+        if type == '招呼':
+            msg = r.post(url + '/admin.php/app/greet/audit.html', data={
+                'id': id,
+                'status': status
+            }).json()['msg']
+        if type == '相册':
+            if status == 1 or status == '1':
+                msg = r.post(url + '/admin.php/app/photo/toaudit.html', data={
+                    'id': id,
+                    'status': 2
+                }).json()['msg']
+            elif status == 2 or status == '2':
+                msg = r.post(url + '/admin.php/app/photo/toaudit.html', data={
+                    'content':'您上传的图片/视频未通过审核，请重新上传！温馨提示：涉及色情、违法的图片/视频将无法通过审核。',
+                    'id': id,
+                    'status': 3
+                }).json()['msg']
+        if type == '标签':
+            if status == 1 or status == '1':
+                msg = r.post(url + '/admin.php/app/user/totagaudit.html', data={
+                    'id': id,
+                    'status': 2
+                }).json()['msg']
+            elif status == 2 or status == '2':
+                msg = r.post(url + '/admin.php/app/user/totagaudit.html', data={
+                    'content': '与本人不符！',
+                    'id': id,
+                    'status': 0
+                }).json()['msg']
+        if msg == '操作成功':
+            return HttpResponse(json.dumps({'status':200,'msg': '审核成功'}))
+        else:
+            return HttpResponse(json.dumps({'status': 400, 'msg': '审核失败'}))
+
     #分页
     def pages(self,page,limit):
         page = int(page)
@@ -159,6 +374,7 @@ class caseChoice():
         begin = (page - 1) * limit + 1
         end = page * limit
         return (begin,end)
+
     def fuc(self,case_name):
         print(os.getpid())
         report_name = runner_case().run(case_name=case_name)
@@ -256,6 +472,36 @@ class caseChoice():
             case_data['case_assert'] = case_asserts
             data.append(case_data)
         return data
+
+    def zhenrenlist(self, request):
+        r = requests.Session()
+        url = 'https://manager.dengtayiduiyi.com/'
+        # url = 'https://test-manager.dengtayiduiyi.com/'
+        r.headers = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                     'cookie': settings.SHENHE_COOKIE,
+                     'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
+                     'x-requested-with': 'XMLHttpRequest'
+                     }
+        now_time = datetime.datetime.now()
+        new_time = now_time.strftime('%Y-%m-%d %H:%M:%S')
+        yes_time = now_time + datetime.timedelta(days=-1)
+        old_time = yes_time.strftime('%Y-%m-%d %H:%M:%S')
+        zhenren_renzheng = r.post(url + '/admin.php/app/content_audit/userrealauth.html', data={
+            'datetime_start': old_time,
+            'datetime_end': new_time
+        }).json()['data']  # 真人认证
+        querys = []
+        if len(zhenren_renzheng) == 0:
+            return HttpResponse(
+                json.dumps({'code': 0, 'count': 0, 'data': querys, 'msg': '操作成功', 'status': 1}, cls=DateEncoder))
+        for i in zhenren_renzheng:
+            query = {}
+            query['id'] = i['id']
+            query['touxiang'] = i['avatar']
+            query['image'] = i['photo']
+            querys.append(query)
+        return HttpResponse(
+            json.dumps({'code': 0, 'count': 0, 'data': querys, 'msg': '操作成功', 'status': 1}, cls=DateEncoder))
 
 
 

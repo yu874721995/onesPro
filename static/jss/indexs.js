@@ -321,7 +321,7 @@ function openAdd(){
               postheader == '' ?body.find('#headerText').val(request_header) : body.find('#headerText').val(JSON.stringify(postheader))
               $.post(hostUrl+'/queryForProduct',{},function (data) {
                   var _html,json_data;
-                  json_data = JSON.parse(data).data
+                  json_data = JSON.parse(data).datapopcp
                   for (var i = 0; i < json_data.length; i++) {
                             _html += "<option value='"+json_data[i].id+"'>"+json_data[i].name+"</option>"
                         }

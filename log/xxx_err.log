@@ -1,0 +1,153 @@
+[2021-11-01 15:07:17,877][APScheduler:15288][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
+[2021-11-01 21:02:42,376][APScheduler:18572][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\util.py", line 310, in ref_to_obj
+    obj = getattr(obj, name)
+AttributeError: module 'oneGo.views' has no attribute 'test_job'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 283, in _reconstitute_job
+    job.__setstate__(job_state)
+  File "D:\Anocanda\lib\site-packages\apscheduler\job.py", line 273, in __setstate__
+    self.func = ref_to_obj(self.func_ref)
+  File "D:\Anocanda\lib\site-packages\apscheduler\util.py", line 313, in ref_to_obj
+    raise LookupError('Error resolving reference %s: error looking up object' % ref)
+LookupError: Error resolving reference oneGo.views:test_job: error looking up object
+[2021-11-01 21:03:30,467][ThreadPoolExecutor-0_0:18868][task_id:apscheduler.executors.default][base.py:131][ERROR][Job "dingding_job (trigger: interval[0:02:00], next run at: 2021-11-01 21:05:29 CST)" raised an exception]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:\onespro\oneGo\views.py", line 1476, in dingding_job
+    shenhe()
+  File "D:\onespro\oneGo\views.py", line 1601, in shenhe
+    if len(rt.json()['data']) ==0 and len(rd.json()['data']) ==0 and len(rx.json()['data']) ==0 and len(rb.json()['data']) ==0 and len(rq.json()['data']) ==0:
+  File "D:\Anocanda\lib\site-packages\requests\models.py", line 900, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "D:\Anocanda\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "D:\Anocanda\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\Anocanda\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2021-11-01 21:05:30,409][ThreadPoolExecutor-0_0:18868][task_id:apscheduler.executors.default][base.py:131][ERROR][Job "dingding_job (trigger: interval[0:02:00], next run at: 2021-11-01 21:07:29 CST)" raised an exception]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:\onespro\oneGo\views.py", line 1476, in dingding_job
+    shenhe()
+  File "D:\onespro\oneGo\views.py", line 1601, in shenhe
+    if len(rt.json()['data']) ==0 and len(rd.json()['data']) ==0 and len(rx.json()['data']) ==0 and len(rb.json()['data']) ==0 and len(rq.json()['data']) ==0:
+  File "D:\Anocanda\lib\site-packages\requests\models.py", line 900, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "D:\Anocanda\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "D:\Anocanda\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\Anocanda\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2021-11-01 21:07:30,552][ThreadPoolExecutor-0_0:18868][task_id:apscheduler.executors.default][base.py:131][ERROR][Job "dingding_job (trigger: interval[0:02:00], next run at: 2021-11-01 21:09:29 CST)" raised an exception]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:\onespro\oneGo\views.py", line 1476, in dingding_job
+    shenhe()
+  File "D:\onespro\oneGo\views.py", line 1601, in shenhe
+    if len(rt.json()['data']) ==0 and len(rd.json()['data']) ==0 and len(rx.json()['data']) ==0 and len(rb.json()['data']) ==0 and len(rq.json()['data']) ==0:
+  File "D:\Anocanda\lib\site-packages\requests\models.py", line 900, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "D:\Anocanda\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "D:\Anocanda\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\Anocanda\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2021-11-01 21:09:30,493][ThreadPoolExecutor-0_0:6032][task_id:apscheduler.executors.default][base.py:131][ERROR][Job "dingding_job (trigger: interval[0:02:00], next run at: 2021-11-01 21:11:29 CST)" raised an exception]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:\onespro\oneGo\views.py", line 1476, in dingding_job
+    shenhe()
+  File "D:\onespro\oneGo\views.py", line 1605, in shenhe
+    if len(rt.json()['data']) ==0 and len(rd.json()['data']) ==0 and len(rx.json()['data']) ==0 and len(rb.json()['data']) ==0 and len(rq.json()['data']) ==0:
+  File "D:\Anocanda\lib\site-packages\requests\models.py", line 900, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "D:\Anocanda\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "D:\Anocanda\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\Anocanda\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2021-11-01 21:20:22,177][ThreadPoolExecutor-0_0:19236][task_id:apscheduler.executors.default][base.py:131][ERROR][Job "dingding_job (trigger: interval[0:00:10], next run at: 2021-11-01 21:20:31 CST)" raised an exception]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:\onespro\oneGo\views.py", line 1476, in dingding_job
+    shenhe()
+  File "D:\onespro\oneGo\views.py", line 1580, in shenhe
+    times = time.strftime('%H%m%s',time.localtime(time.time()))
+ValueError: Invalid format string
+[2021-11-01 21:21:02,109][ThreadPoolExecutor-0_0:6384][task_id:apscheduler.executors.default][base.py:131][ERROR][Job "dingding_job (trigger: interval[0:00:10], next run at: 2021-11-01 21:21:11 CST)" raised an exception]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:\onespro\oneGo\views.py", line 1476, in dingding_job
+    shenhe()
+  File "D:\onespro\oneGo\views.py", line 1580, in shenhe
+    times = time.strftime("%H%m%s", time.localtime())
+ValueError: Invalid format string
+[2021-11-02 09:25:45,982][APScheduler:18920][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
+[2021-11-02 12:05:26,252][APScheduler:18772][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
+[2021-11-02 15:17:26,945][APScheduler:6968][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
+[2021-11-02 15:26:22,292][APScheduler:6968][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
+[2021-11-05 12:19:22,779][APScheduler:10968][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.test_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
+[2021-11-05 12:27:22,791][APScheduler:10244][task_id:apscheduler.jobstores.default][jobstores.py:300][ERROR][Unable to restore job 'oneGo.views.dingding_job'. Removing it...]
+Traceback (most recent call last):
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 297, in _get_jobs
+    jobs.append(self._reconstitute_job(job_state))
+  File "D:\Anocanda\lib\site-packages\django_apscheduler\jobstores.py", line 281, in _reconstitute_job
+    job_state = pickle.loads(job_state)
+ModuleNotFoundError: No module named 'pytz_deprecation_shim'
