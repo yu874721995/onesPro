@@ -1535,6 +1535,9 @@ def uplaod_app(type,xt,times,pro_name,filename):
 
 
 def work():
+    import platform
+    if platform.system() == 'Linix':
+        return
     file_path = 'Z:\测试部\\app\\'
     # file_path = '/smb/测试部/app/'
     times = time.strftime("%Y%m%d", time.localtime())
