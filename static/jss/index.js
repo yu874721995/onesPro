@@ -65,6 +65,49 @@ function user_id_phone(){
     selectPhone:$("#selectPhone").val(),selectConfig:$('#selectConfig').val()},function(data){
    alert(JSON.parse(data).msg)})
 }
+function im_history(){
+    $.post(hostUrl+'/im_history',{
+    fromUser:$("#fromUser").val(),toUser:$('#toUser').val(),startTime:$("#startTime").val(),endTime:$("#endTime").val()},function(data){
+   layui.use('layer',function(){
+       if (JSON.parse(data).data == [] || JSON.parse(data).data ==null || JSON.parse(data).data == ''){
+    layer.msg('没有任何数据哦，检查一下提交的内容');
+    return}
+   var index = layer.open({
+   type:2
+        ,title: '查看聊天记录'
+        ,content:'./static/checkim.html'
+        ,skin:'layui-layer-lan'
+        ,area: ['1000px', '600px']
+        ,btnAlign: 'c'
+        ,maxmin: true
+        ,shadeClose:true
+         ,success: function(layero,index){
+          var body = parent.layer.getChildFrame('body', index);
+          var _html = '';
+          var json_data;
+          json_data = JSON.parse(data).data
+          console.log(json_data)
+          for (var i = 0; i < json_data.length; i++) {
+                    if(json_data[i].text==''){continue};
+                    _html += '<div>\n' +
+                    '<p>发送者昵称:'+json_data[i].from_nick+'</p>\n' +
+                    '<p>发送者id:'+json_data[i].from_user+'</p>\n' +
+                    '<p>接受者id:'+json_data[i].to_user+'</p>\n' +
+                    '<p>消息内容:'+json_data[i].text+'</p>\n' +
+                    '<p>发送时间:'+json_data[i].time+'</p><br><p></p><br><p></p></div>'
+                }
+                console.log(_html)
+           body.find('#im').append(_html);
+        }
+        ,end:function(data){
+            // window.location.reload()
+            }
+});
+
+   });
+   })
+}
+
 
 function flower_update(){
     $.post(hostUrl+'/flower',{
@@ -122,7 +165,7 @@ function information_gifts(){
 function income_calculator(){
     $.post(hostUrl+'/income_calculator',{
     rewarder:$("#rewarder").val(),recipient:$('#recipient').val(),coin_money:$('#coin_money').val(),
-    income_config:$("#income_config").val()},function(data){
+    income_config:$("#income_config").val(),is_beibao:$('input[name="ttt"]:checked').val()},function(data){
    alert(JSON.parse(data).msg)})
 }
 

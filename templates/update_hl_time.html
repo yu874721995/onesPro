@@ -37,6 +37,7 @@
                 <li>收益计算器</li>
                 <li>开通会员</li>
                 <li>查询历史app下载二维码</li>
+                <li>查询聊天记录</li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
@@ -131,11 +132,11 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">手机号码</label>
                             <div class="layui-input-block">
-                                <input type="text" name="title" id="phones" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+                                <input type="text" name="title" id="phones" placeholder="请输入手机号码或id" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
-                            <label class="layui-form-label">花种</label>
+                            <label class="layui-form-label">花花</label>
                             <div class="layui-input-block">
                                 <input type="text" name="title" id="coin" placeholder="请输入花种" autocomplete="off" class="layui-input">
                             </div>
@@ -177,8 +178,8 @@
                             <label class="layui-form-label">操作</label>
                             <div class="layui-input-block" >
                           <select name="city" lay-verify="required" id="information_gifts_operate">
-                            <option value="1">发消息</option>
                             <option value="2">送礼物</option>
+                            <option value="1">发消息</option>
                           </select>
                         </div>
                         </div>
@@ -222,6 +223,13 @@
                             <div class="layui-input-block">
                                 <input type="text" name="title" id="coin_money" placeholder="请输入打赏花花数" autocomplete="off" class="layui-input">
                             </div>
+                        </div>
+                        <div class="layui-form-item">
+                             <label class="layui-form-label" style="width:100px">是否背包礼物：</label>
+                             <div class="layui-input-block" id="is_beibao">
+                                   <input type="radio"  name="ttt" value="1" title="是" />
+                                   <input type="radio"  name="ttt" value="2" title="否" />
+                             </div>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">环境</label>
@@ -314,6 +322,41 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="layui-tab-item">
+                    <div class="layui-row">
+                        <span style="color:red">目前只支持查询文字消息记录，其他消息会被过滤，支持筛选发送人或接收人或同时满足发送和接收人，支持时间筛选，不传时间默认从昨天到现在</span>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">开始时间</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" autocomplete="off" placeholder="开始时间" name="start" id="startTime">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">截止时间</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" autocomplete="off" placeholder="截止时间" name="end" id="endTime">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">发送者</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="fromUser" placeholder="请输入用户id（精确查询）" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">接受者</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="toUser" placeholder="请输入用户id（精确查询）" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <a href='javascript:void(0)' onclick="im_history()" class="button-style">
+                            <button type="button" style="cursor:pointer;" id="im_history" class="layui-btn">提交</button>
+                        </a>
+                </div>
+                    </div>
+
+
             </div>
         </div>
     </form>
@@ -347,6 +390,18 @@
     <!--</div>-->
 </body>
 <script>
+$(function(){
+layui.use(['form'], function() {
+                    var form=layui.form;
+                    console.log(111)
+				    $("input[name=ttt][value=2]").prop("checked","true");
+                    form.render();
+
+ });
+
+});
+
+
 <!--监控select onchange-->
     layui.use(['form'], function() {
                     var form=layui.form;
@@ -355,6 +410,26 @@
 						    get_agent(val);
 		  			 });
  });
+</script>
+<script>layui.use('laydate',
+        function() {
+            laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#startTime' //指定元素
+                ,format:'yyyy-MM-dd HH:mm:ss'
+
+            });
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#endTime' //指定元素
+                ,max: 'nowTime'
+                ,format:'yyyy-MM-dd HH:mm:ss'
+            });
+
+        });
 </script>
 
 </html>

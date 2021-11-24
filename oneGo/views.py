@@ -1,5 +1,6 @@
 import hashlib
 import random
+import platform
 
 from django.shortcuts import render
 from django.shortcuts import redirect
@@ -185,6 +186,8 @@ def flower_update(request):
     if phones == '':
         return HttpResponse(json.dumps({'status': 500,
                                         'msg': '请输入必填项'}))
+    elif phones[0] == 't':
+        phones = user_phone(phones, config)
 
     if config == '7' or config == '8' or config =='9':
         try:
@@ -842,16 +845,19 @@ def auto_registration(request):
                     raise Exception('上传图片失败了', result_image.status)
                 image_url = oss_path + '/' + image_path
                 # 完善资料
-                requests.post(url + '/user/user/edit', data={
+                r = requests.post(url + '/user/user/edit', data={
                     'access_token': token,
                     'avatar': image_url,
                     'birth_year': random.randint(1990, 2000),
                     'height': random.randint(160, 170),
                     'marriage': 1,
                     'place_city_code': '440300',
-                    'version': '2.0.1'
+                    'version': '2.2.1'
                 })
-                logger.info('完善资料')
+                if r.json()['result'] == True:
+                    logger.info('完善资料ok')
+                else:
+                    logger.error('完善资料报错啦')
                 # 标签审核通过
                 if user_id is not None:
                     try:
@@ -892,6 +898,7 @@ def income_calculator(request):
     recipient = request.POST.get('recipient', None)
     coin_money = request.POST.get('coin_money', None)
     income_config = request.POST.get('income_config', None)
+    isbeibao = request.POST.get('is_beibao', None)
     if rewarder == '' or recipient == '' or coin_money == '':
         return HttpResponse(json.dumps({'status': 500,
                                         'msg': '必填项不能为空'}))
@@ -918,24 +925,33 @@ def income_calculator(request):
                 WHERE
                     u.id = %s
 		            '''
-        result = mysql_path(income_config,rewarder_sql,rewarder)
-        result = result[0]
-        rewarder_agent,rewarder_superior,rewarder_user,rewarder_its_superior = result[0]/100,result[1]/100,result[2]/100,result[3]/100
+        inbites_sql = '''
+                        select * from js_system_config where name = 'invite_contacts_config'
+                        '''
+        inbites = mysql_path(income_config, inbites_sql)
+        inbites = eval(inbites[0][5])
+        recipient_user = int(inbites['gift']) / 100#上级礼物流水
         result = mysql_path(income_config,recipient_sql,recipient)
         result = result[0]
-        recipient_agent,recipient_superior,recipient_user,recipient_its_superior = result[0]/100,result[1]/100,result[2]/100,result[3]/100
-        logger.info('打赏者代理商的分成比例 {} 打赏者上级的分成比例 {} 打赏者代理商用户分成比例 {} 打赏者代理商其上级分成比例 {}'
-                    .format(rewarder_agent,rewarder_superior,rewarder_user,rewarder_its_superior))
-        logger.info('受赏者代理商的分成比例 {} 受赏者上级的分成比例 {} 受赏者代理商用户分成比例 {} 受赏者代理商其上级分成比例 {}'
-                    .format(recipient_agent,recipient_superior,recipient_user,recipient_its_superior))
-
+        recipient_agent,recipient_its_superior = result[0]/100,result[2]/100
+        logger.info('受赏者代理商的分成比例 {} 受赏者上级的分成比例 {} 受赏者代理商用户分成比例 {}'
+                    .format(recipient_agent,recipient_user,recipient_its_superior))
         x = float(coin_money) * recipient_agent
-        rewarded_income = x * recipient_user  # 受赏者收益
-        reward_income = x * recipient_its_superior # 受赏者上级收益
-        rewards_from_superiors = float(coin_money) * recipient_superior  # 打赏者上级收益
+        rewarded_income = x * recipient_its_superior  # 受赏者收益
+        reward_income = x * recipient_user # 受赏者上级收益
         agent_income = x - rewarded_income - reward_income # 受赏者代理商收益
-        logger.info('受赏者收益  {} 受赏者上级收益 {} 打赏者上级收益 {} 受赏者代理商收益 {}'
-                    .format(rewarded_income/10,reward_income/10,rewards_from_superiors/10,agent_income/10))
+        logger.info('受赏者收益  {} 受赏者上级收益 {} 受赏者代理商收益 {}'
+                    .format(rewarded_income/10,reward_income/10/10,agent_income/10))
+        if isbeibao == '1':
+            sql = '''
+            select * from js_system_config where name = 'pack_config'
+            '''
+            result = mysql_path(income_config,sql)
+            beibao = int(result[0][5]) / 100
+            rewarded_income = int(coin_money) * beibao
+            return HttpResponse(json.dumps({'status': 200,
+                                'msg': '受赏者收益{}元'
+                    .format(rewarded_income/10)}))
 
     except Exception as e:
         return HttpResponse(json.dumps({'status': 500,
@@ -943,8 +959,8 @@ def income_calculator(request):
     else:
         logger.info('完成')
         return HttpResponse(json.dumps({'status': 200,
-                                'msg': '受赏者收益 {} 受赏者上级收益 {} 打赏者上级收益 {} 受赏者代理商收益 {}'
-                    .format(rewarded_income/10,reward_income/10,rewards_from_superiors/10,agent_income/10)}))
+                                'msg': '受赏者收益 {} 受赏者上级收益 {} 受赏者代理商收益 {}'
+                    .format(rewarded_income/10,reward_income/10,round(agent_income/10,3))}))
 
 def charge_vip(request):
     vip_phone = request.POST.get('vip_phone', None)
@@ -1218,6 +1234,72 @@ def fetch_gift_upUid(uid):  # 查询收礼人上级UId，如果收礼人非代�
         daili_uid = gift_uid
     return gift_uid, daili_uid
 
+def im_history(request):
+    fromUser = request.POST.get('fromUser',None)
+    touser = request.POST.get('toUser','')
+    startTime = request.POST.get('startTime',None)
+    endTime = request.POST.get('endTime',None)
+    if fromUser == None:
+        fromUser = ''
+    if touser == None:
+        touser = ''
+    if startTime == None or startTime == '':
+        startTime = int(time.time()) - 864000
+    if startTime != None and startTime != '':
+        startTime = int(time.mktime(time.strptime(startTime, "%Y-%m-%d %H:%M:%S"))) * 1000
+    if endTime != None and endTime != '':
+        endTime = int(time.mktime(time.strptime(endTime, "%Y-%m-%d %H:%M:%S"))) * 1000
+    if fromUser == None:
+        fromUser = ''
+    if touser == None:
+        touser = ''
+    url = 'http://8.129.1.206:15601/api/console/proxy?path=_search&method=POST'
+    datas = []
+    headers = {
+        'Accept': 'text/plain, */*; q=0.01',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'Authorization': 'Basic a2liYW5hOkZGREVXZGs4MjA5bCpvZWFh',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'Content-Length': '0',
+        'Host': '8.129.1.206:15601',
+        'kbn-version': '6.8.1',
+        'Origin': 'http://8.129.1.206:15601',
+        'Pragma': 'no-cache',
+        'Referer': 'http://8.129.1.206:15601/app/kibana',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
+    }
+    data = {"version": True, "size": 500, "sort": [{"@timestamp": {"order": "desc", "unmapped_type": "boolean"}}],
+            "_source": {"excludes": []}, "aggs": {"2": {
+            "date_histogram": {"field": "@timestamp", "interval": "1m", "time_zone": "Asia/Shanghai",
+                               "min_doc_count": 1}}}, "stored_fields": ["*"], "script_fields": {},
+            "docvalue_fields": [{"field": "@timestamp", "format": "date_time"}], "query": {"bool": {
+            "must": [{"range": {"@timestamp": {"gte": int(startTime), "lte": int(endTime), "format": "epoch_millis"}}}],
+            "filter": [{"bool": {
+                "filter": [{"multi_match": {"type": "best_fields", "query": "00push00", "lenient": True}}, {"bool": {
+                    "filter": [
+                        {"multi_match": {"type": "phrase", "query": "'fromAccount' => '{}'".format(fromUser), "lenient": True}},
+                        {"multi_match": {"type": "phrase", "query": "'to' => '{}',".format(touser), "lenient": True}}]}}]}}],
+            "should": [], "must_not": []}},
+            "highlight": {"pre_tags": ["@kibana-highlighted-field@"], "post_tags": ["@/kibana-highlighted-field@"],
+                          "fields": {"*": {}}, "fragment_size": 2147483647}, "timeout": "30000ms"}
+    r = requests.post(url, json=data, headers=headers)
+    for i in r.json()['hits']['hits']:
+        try:
+            print(i['_source']['message'])
+            from_nick = i['_source']['message'].split("'fromNick' => '")[1].split("',")[0]
+            from_user = i['_source']['message'].split("'fromAccount' => '")[1].split("',")[0]
+            to_user = i['_source']['message'].split("'to' => '")[1].split("',")[0]
+            text = i['_source']['message'].split("'body' => '")[1].split("',")[0]
+            times = time.strftime("%Y--%m--%d %H:%M:%S", time.localtime(int(i['sort'][0])/1000))
+
+            datas.append({'from_nick':from_nick,'from_user':from_user,'to_user':to_user,'text':text,'time':times,})
+        except Exception as e:
+            print(str(e))
+            continue
+    return HttpResponse(json.dumps({'status': 200, 'msg': '操作成功','data':datas}))
+
 
 def get_terr(uid, gift_uid, daili_uid):  # 查询该代理商分红比例
     fenhong = ''
@@ -1474,7 +1556,7 @@ try:
     @register_job(scheduler, "interval", seconds=120)
     def test_job():
         work()
-    @register_job(scheduler, "interval", seconds=300)
+    @register_job(scheduler, "interval", seconds=600)
     def dingding_job():
         shenhe()
     register_events(scheduler)
@@ -1536,7 +1618,7 @@ def uplaod_app(type,xt,times,pro_name,filename):
 
 def work():
     import platform
-    if platform.system() == 'Linix':
+    if platform.system() == 'Linux':
         return
     file_path = 'Z:\测试部\\app\\'
     # file_path = '/smb/测试部/app/'
@@ -1592,14 +1674,14 @@ def shenhe():
                'user-agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
                  'x-requested-with':'XMLHttpRequest'
                  }
-
-    rt = r.post('https://manager.dengtayiduiyi.com/admin.php/app/user/avataraudit.html?page=1&limit=10',data={
-        'status':1
-    })
     try:
+        rt = r.post('https://manager.dengtayiduiyi.com/admin.php/app/user/avataraudit.html?page=1&limit=10', data={
+            'status': 1
+        })
         rt.json()
     except:
         get_houtai_cookie()
+        logger.info('跳过dingding-job')
         return
 
     rd = r.post('https://manager.dengtayiduiyi.com/admin.php/app/content_audit/moments.html',data={
@@ -1629,8 +1711,7 @@ def shenhe():
                '有{}条招呼未审核  \n'.format(len(rz.json()['data'])) + \
                 '最近24小时有{}条真人认证  \n'.format(len(rb.json()['data']))
 
-    if len(rt.json()['data']) >5 or len(rd.json()['data']) >5 or len(rx.json()['data']) >5 or len(rq.json()['data']) >5 or len(rz.json()['data']) > 5:
-        data = {
+    data = {
             'msgtype': 'markdown',
             'markdown': {
                 'title': '审核来了，兄弟姐妹们',
@@ -1640,8 +1721,17 @@ def shenhe():
                 "atMobiles": ['15989510396', '13434435107'], 'isAtAll': True
             }
         }
-    else:
-        return
+    if len(rt.json()['data']) == 0 and len(rd.json()['data']) == 0 and len(rx.json()['data']) == 0  and len(rq.json()['data']) == 0:
+        data = {
+            'msgtype': 'markdown',
+            'markdown': {
+                'title': '没有任何审核信息',
+                'text': r"没有任何审核信息 耶~"
+            },
+            'at': {
+                "atMobiles": ['15989510396', '13434435107'], 'isAtAll': True
+            }
+        }
     headers = {"Content-Type": "application/json"}
     r2 = requests.post(
         'https://oapi.dingtalk.com/robot/send?access_token=4040d62948003fe61428082409aee12723d35c9fd1296277fb10056c88230aa7',
@@ -1650,17 +1740,27 @@ def shenhe():
         raise LookupError('钉钉消息发送失败')
 
 def get_houtai_cookie():
-    from selenium import webdriver
-    option = webdriver.ChromeOptions()
-    option.add_argument("headless")
-    driver = webdriver.Chrome(chrome_options=option)
+    from selenium.webdriver import Chrome
+    from selenium.webdriver.chrome.options import Options
+
+    DRIVER_PATH = '/usr/chromedriver/chromedriver'
+    options = Options()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--headless')  # 无头参数
+    options.add_argument('--disable-gpu')
+    # 启动浏览器
+    if 'Linux' in platform.system():
+        driver = Chrome(executable_path=DRIVER_PATH, options=options)
+    else:
+        driver = Chrome(options=options)
+    # 访问目标URL
     driver.get('https://manager.dengtayiduiyi.com/admin.php/system/index/index.html')
-    driver.find_element_by_xpath('//input[@placeholder="登录账号"]').send_keys('********')
-    driver.find_element_by_xpath('//input[@placeholder="登录密码"]').send_keys('********')
+    driver.find_element_by_xpath('//input[@placeholder="登录账号"]').send_keys('yunying09')
+    driver.find_element_by_xpath('//input[@placeholder="登录密码"]').send_keys('Ysh@1234')
     driver.find_element_by_class_name('layui-btn.layui-btn-normal').click()
     cookie = driver.get_cookies()
+    driver.close()
     driver.quit()
     for i in cookie:
         if len(i['value']) > 5:
             settings.PHPSESSID = i['value']
-

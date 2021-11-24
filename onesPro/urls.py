@@ -59,6 +59,7 @@ urlpatterns = [
     re_path('zhaohu',case().zhaohu),
     re_path('shijishenhe',case().shijishenhe),
     re_path('batchExecution', case().batchExecution),
+    re_path('fengxian', case().fengxian),
     # re_path('sendMsg', wechatview.sendMsg),
     re_path('getUserInfo', xcx_login().getUserInfo),
     re_path('uploadImage', uploadimg.uploadImage),
@@ -83,6 +84,7 @@ urlpatterns = [
     re_path('Getagent',indexviews.get_agent),
     re_path('shenhe',indexviews.returnshenhe),
     re_path('zhenren',indexviews.zhenren),
+    re_path('im_history',indexviews.im_history)
     # re_path('get_houtai_cookie',indexviews.get_houtai_cookie),
 
 
