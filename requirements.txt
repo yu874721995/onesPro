@@ -55,7 +55,7 @@ decorator @ file:///tmp/build/80754af9/decorator_1617916966915/work
 defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
 diff-match-patch @ file:///tmp/build/80754af9/diff-match-patch_1594828741838/work
 distributed @ file:///C:/ci/distributed_1617384289923/work
-Django==2.2
+Django==2.2.28
 django-apscheduler==0.6.0
 django-cors-headers==3.10.0
 django-extensions==3.1.3
